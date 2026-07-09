@@ -1,16 +1,15 @@
-# dotfiles
-My own dot files and install script for Void Linux system
 
-# first attempt to use github for my .dot files for void linux
+# My own dot files and install script for Void Linux system
 
-dot files for
+
+dot files for 
 
 openbox
 polybar
 picom
 htop
 
-Prerequierment for the install script
+Pre-requierments for the install script
 
 after installation and first reboot
 login as root
