@@ -582,22 +582,22 @@
     <!-- Screenshots -->
     <keybind key="Print">
       <action name="Execute">
-        <command>flameshot full --path ~/Screenshots/</command>
+        <command>flameshot full --path ~/screenshots/</command>
       </action>
     </keybind>
     <keybind key="W-Print">
       <action name="Execute">
-        <command>flameshot gui --path ~/Screenshots/</command>
+        <command>flameshot gui --path ~/screenshots/</command>
       </action>
     </keybind>
     <keybind key="W-s">
       <action name="Execute">
-        <command>flameshot full --path ~/Screenshots/</command>
+        <command>flameshot full --path ~/screenshots/</command>
       </action>
     </keybind>
     <keybind key="W-S-s">
       <action name="Execute">
-        <command>flameshot gui --path ~/Screenshots/</command>
+        <command>flameshot gui --path ~/screenshots/</command>
       </action>
     </keybind>
     <!-- System Controls -->

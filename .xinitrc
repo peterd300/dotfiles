@@ -1,5 +1,5 @@
 xscreensaver --no-splash &
 
-exec xterm & 
+xterm & 
 exec openbox-session
 # exec twm
