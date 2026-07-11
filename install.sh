@@ -62,7 +62,7 @@ sudo xbps-install -Sy alacritty falkon kitty st flameshot gmrun
 mkdir -p ~/Screenshots
 
 #install filemanager + jpg viewer
-sudo xbps-install -Sy Thunar thunar-archive-plugin thunar-media-tags-plugin tumbler lximage-qt  
+sudo xbps-install -Sy Thunar thunar-archive-plugin thunar-media-tags-plugin tumbler lximage-qt gvfs
 
 #install X11 icon themes
 sudo xbps-install -Sy papirus-icon-theme lxde-icon-theme xcursor-themes
