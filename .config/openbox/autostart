@@ -3,7 +3,7 @@
 
 lxpolkit &
 dunst -config ~/.config/openbox/dunst/dunstrc &
-picom --config ~/.config/openbox/picom/picom.conf -b &
+# picom --config ~/.config/picom/picom.conf &
 # feh --bg-fill ~/.config/openbox/wallpaper/blue-mountains.jpg &
 nitrogen --restore & 
 
