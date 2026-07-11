@@ -7,7 +7,7 @@ picom --config ~/.config/openbox/picom/picom.conf -b &
 feh --bg-fill ~/.config/openbox/wallpaper/blue-mountains.jpg &
 
 ## Polybar or tint
-~/.config/openbox/polybar/polybar-ob &
+polybar &
 
 # First-login welcome (shown once, dismissable)
 if [ ! -f "$HOME/.cache/openbox/welcomed" ]; then
