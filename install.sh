@@ -20,7 +20,7 @@ sudo xbps-install -Sy htop btop make git wget unzip nano cmake curl gcc net-tool
 
 # install xorg
 sudo xbps-install -Syu
-sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm  xscreensaver twm
+sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm
 
 
 # install openbox
@@ -41,7 +41,7 @@ echo "# exec twm" >> ~/.xinitrc
 
 
 ## install openbox utils
-sudo xbps-install -Sy polybar tint2 feh xdg-user-dirs xdg-utils
+sudo xbps-install -Sy polybar tint2 feh xdg-user-dirs xdg-utils nitrogen 
 mkdir -p ~/.config/polybar
 
 
@@ -61,11 +61,12 @@ sudo ln -s /etc/sv/dbus /var/service/
 
 
 ## install x11 utils (icon theme switch werkt nog niet)
-sudo xbps-install -Sy adwaita-plus turnstile
+sudo xbps-install -Sy adwaita-plus turnstile nerd-fonts font-awesome 
 sudo ln -sf /etc/sv/turnstiled/ /var/service/
 
 ## install favorite X11 programs
-sudo xbps-install -Sy alacritty falkon kitty st
+sudo xbps-install -Sy alacritty falkon kitty st flameshot
+mkdir -p ~/Screenshots
 
 #install filemanager + jpg viewer
 sudo xbps-install -Sy Thunar thunar-archive-plugin thunar-media-tags-plugin tumbler lximage-qt  
@@ -77,8 +78,9 @@ sudo xbps-install -Sy papirus-icon-theme lxde-icon-theme xcursor-themes
 #install geany
 sudo xbps-install -Sy geany geany-editorconfig-plugin geany-plugins geany-plugins-extra
 
-
-
+#install several apps
+sudo xbps-install acpid  
+sudo ln -s /etc/sv/acpid /var/service/
 
 ## picon
 sudo xbps-install -Sy picom
@@ -88,7 +90,7 @@ cp /usr/share/examples/picom/picom.sample.conf ~/.config/picom/picom.conf
 
 
 ## install sound support
-sudo xbps-install -Sy pipewire alsa-plugins-pulseaudio wireplumber
+sudo xbps-install -Sy pipewire alsa-plugins-pulseaudio wireplumber pavucontrol pamixer
 
 
 ## give user access to audio and video device
@@ -102,6 +104,8 @@ sudo usermod -aG audio,video $(whoami)
 # mkdir /tmp/$(id -u)
 # export XDG_RUNTIME_DIR=/tmp/$(id -u)
 
+# create again menu
+obmenu-generator -p -i
 
 # ~/.config/openbox/autostart
 
