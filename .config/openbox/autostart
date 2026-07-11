@@ -4,8 +4,8 @@
 lxpolkit &
 dunst -config ~/.config/openbox/dunst/dunstrc &
 picom --config ~/.config/openbox/picom/picom.conf -b &
-feh --bg-fill ~/.config/openbox/wallpaper/blue-mountains.jpg &
-xscreensaver &
+# feh --bg-fill ~/.config/openbox/wallpaper/blue-mountains.jpg &
+nitogen --restore & 
 
 ## Polybar or tint
 polybar &
