@@ -71,7 +71,7 @@ sudo xbps-install -Sy papirus-icon-theme lxde-icon-theme xcursor-themes
 sudo xbps-install -Sy geany geany-editorconfig-plugin geany-plugins geany-plugins-extra
 
 #install several apps
-sudo xbps-install acpid  
+sudo xbps-install -Sy acpid  
 sudo ln -s /etc/sv/acpid /var/service/
 
 ## picon
