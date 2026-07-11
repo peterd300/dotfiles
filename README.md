@@ -34,3 +34,13 @@ sudo xbps-install -Sy xbps
 ```
 reboot system
 after reboot login as user and run install script
+
+During installation some basic and default config files are copied.
+
+After reboot copy all files to your homedirectoy nad override exstings
+
+
+Things to do:
+- Proper kitty.conf
+- picom doesn;t work in VM workstation 
+- polybar config 
