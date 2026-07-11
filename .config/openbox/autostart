@@ -1,0 +1,19 @@
+
+# Originally using tint2 but now using polybar
+
+lxpolkit &
+dunst -config ~/.config/openbox/dunst/dunstrc &
+picom --config ~/.config/openbox/picom/picom.conf -b &
+feh --bg-fill ~/.config/openbox/wallpaper/bluemountain.jpg &
+
+## Polybar or tint
+~/.config/openbox/polybar/polybar-ob &
+
+# First-login welcome (shown once, dismissable)
+if [ ! -f "$HOME/.cache/openbox/welcomed" ]; then
+	mkdir -p "$HOME/.cache/openbox"
+	touch "$HOME/.cache/openbox/welcomed"
+	(sleep 3; notify-send -u normal -t 15000 \
+		"Welcome to Openbox" \
+		"Press Super + / anytime to see all keybindings.&#10;See ~/QUICKSTART-openbox.md for a cheat sheet.") &
+fi
