@@ -114,7 +114,7 @@
 		already set by other applications, or saved in your session.
 		Use obconf if you want to change these without having to log out
 		and back in -->
-    <number>9</number>
+    <number>6</number>
     <firstdesk>1</firstdesk>
     <names>
       <name>1</name>
@@ -152,7 +152,7 @@
 	Many programs reserve space automatically, but you can use this in other
 	cases. -->
   <margins>
-    <top>48</top>
+    <top>40</top>
     <bottom>16</bottom>
     <left>16</left>
     <right>16</right>

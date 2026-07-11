@@ -58,7 +58,7 @@ sudo xbps-install -Sy adwaita-plus turnstile nerd-fonts font-awesome
 sudo ln -sf /etc/sv/turnstiled/ /var/service/
 
 ## install favorite X11 programs
-sudo xbps-install -Sy alacritty falkon kitty st flameshot
+sudo xbps-install -Sy alacritty falkon kitty st flameshot gmrun
 mkdir -p ~/Screenshots
 
 #install filemanager + jpg viewer
