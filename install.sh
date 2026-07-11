@@ -52,14 +52,16 @@ sudo ln -s /etc/sv/elogind /var/service/
 ## install dbus
 sudo xbps-install -Sy dbus
 sudo ln -s /etc/sv/dbus /var/service/
+sudo sv up dbus
 
 ## install x11 utils (icon theme switch werkt nog niet)
 sudo xbps-install -Sy adwaita-plus turnstile nerd-fonts font-awesome 
 sudo ln -sf /etc/sv/turnstiled/ /var/service/
+sudo sv up turnstiled
 
 ## install favorite X11 programs
 sudo xbps-install -Sy alacritty falkon kitty st flameshot gmrun
-mkdir -p ~/Screenshots
+mkdir -p ~/screenshots
 
 #install filemanager + jpg viewer
 sudo xbps-install -Sy Thunar thunar-archive-plugin thunar-media-tags-plugin tumbler lximage-qt gvfs
@@ -73,6 +75,7 @@ sudo xbps-install -Sy geany geany-editorconfig-plugin geany-plugins geany-plugin
 #install several apps
 sudo xbps-install -Sy acpid  
 sudo ln -s /etc/sv/acpid /var/service/
+sudo sv up acpid
 
 ## picon
 sudo xbps-install -Sy picom
