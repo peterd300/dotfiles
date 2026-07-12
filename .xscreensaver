@@ -1,11 +1,11 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.15 for peter on Sat Jul 11 18:39:51 2026.
+# Written by xscreensaver-settings 6.15 for peter on Sun Jul 12 15:28:33 2026.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:10:00
 cycle:		0:10:00
-lock:		False
-lockTimeout:	0:00:00
+lock:		True
+lockTimeout:	0:15:00
 passwdTimeout:	0:00:30
 visualID:	default
 installColormap:    True
@@ -37,7 +37,7 @@ textFile:
 textProgram:	fortune
 textURL:	https://en.wikipedia.org/w/index.php?title=Special:NewPages&feed=rss
 dialogTheme:	default
-settingsGeom:	49,42 731,197
+settingsGeom:	370,166 731,197
 
 programs:								      \
 				maze --root				    \n\
