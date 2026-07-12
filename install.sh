@@ -15,7 +15,7 @@ sudo ln -s /etc/sv/vmtoolsd /var/service/
 # install X11 in Voidlinux guest
 
 # first install some usefull programs
-sudo xbps-install -Sy htop btop make git wget unzip nano cmake curl gcc net-tools fastfetch
+sudo xbps-install -Sy htop btop make git wget unzip nano cmake curl gcc net-tools fastfetch xlocate
 
 # install xorg
 sudo xbps-install -Syu
