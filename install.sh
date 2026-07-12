@@ -40,19 +40,23 @@ echo "# exec twm" >> ~/.xinitrc
 sudo xbps-install -Sy polybar tint2 dunst rofi feh xdg-user-dirs xdg-utils nitrogen 
 mkdir -p ~/.config/polybar
 
+## install dbus
+sudo xbps-install -Sy dbus
+sudo ln -s /etc/sv/dbus /var/service/
+sudo sv up dbus
+
+
 ## install elogind
 sudo xbps-install -Sy elogind dbus-elogind 
 sleep 1
 sudo ln -s /etc/sv/elogind /var/service/
+sudo sv up dbus
 
 ## install lightdm
 # sudo xbps-install -Sy lightdm lightdm-gtk-greeter
 # sudo ln -s /etc/sv/lightdm /var/service/
 
-## install dbus
-sudo xbps-install -Sy dbus
-sudo ln -s /etc/sv/dbus /var/service/
-sudo sv up dbus
+
 
 ## install x11 utils (icon theme switch werkt nog niet)
 sudo xbps-install -Sy adwaita-plus turnstile nerd-fonts font-awesome 
@@ -72,12 +76,7 @@ sudo xbps-install -Sy papirus-icon-theme lxde-icon-theme xcursor-themes
 #install geany
 sudo xbps-install -Sy geany geany-editorconfig-plugin geany-plugins geany-plugins-extra
 
-#install several apps
-sudo xbps-install -Sy acpid  
-sudo ln -s /etc/sv/acpid /var/service/
-sudo sv up acpid
-
-## picon
+# picom
 sudo xbps-install -Sy picom
 sleep 2
 mkdir -p ~/.config/picom
