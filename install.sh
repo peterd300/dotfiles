@@ -47,9 +47,10 @@ sudo sv up dbus
 
 
 ## install elogind
-sudo xbps-install -Sy elogind dbus-elogind 
+sudo xbps-install -Sy elogind dbus-elogind polkit polkit-elogind 
 sleep 1
 sudo ln -s /etc/sv/elogind /var/service/
+sudo ln -sf /etc/sv/polkitd /var/service/
 sudo sv up dbus
 
 ## install lightdm
