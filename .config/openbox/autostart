@@ -1,14 +1,14 @@
 
-# Originally using tint2 but now using polybar
 
 lxpolkit &
 dunst -config ~/.config/openbox/dunst/dunstrc &
-# picom --config ~/.config/picom/picom.conf &
+picom --config ~/.config/picom/picom.conf &
 # feh --bg-fill ~/.config/openbox/wallpaper/blue-mountains.jpg &
-nitrogen --restore & 
+nitrogen --restore 
+
 
 ## Polybar or tint
-polybar &
+polybar -c ~/.config/polybar/config &
 
 # First-login welcome (shown once, dismissable)
 if [ ! -f "$HOME/.cache/openbox/welcomed" ]; then
