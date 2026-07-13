@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #install open-vmtools-agent for guest in Vmware workstation
-sudo xbps-install -Sy open-vm-tools
+sudo xbps-install -Suy open-vm-tools
 sudo ln -s /etc/sv/vmware-vmblock-fuse /var/service/
 sudo ln -s /etc/sv/vmtoolsd /var/service/
 
@@ -16,6 +16,9 @@ sudo ln -s /etc/sv/vmtoolsd /var/service/
 
 # first install some usefull programs
 sudo xbps-install -Sy htop btop make git wget unzip nano cmake curl gcc net-tools fastfetch xlocate
+sleep 10
+
+
 
 # install xorg
 sudo xbps-install -Syu
