@@ -106,3 +106,16 @@ echo "sleep 1 && pipewire-pulse &" >> ~/.config/openbox/autostart
 echo "sleep 1 " >> ~/.config/openbox/autostart
 echo "sleep 1 && polybar &" >> ~/.config/openbox/autostart
 echo "# sleep 1 && picom &" >> ~/.config/openbox/autostart
+
+echo install JetbrainsMono font
+
+mkdir -p ~/.local/share/fonts/
+wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
+unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
+mv /tmp/jetbrains-mono/fonts/ttf/*.ttf ~/.local/share/fonts/
+fc-cache -f -v
+
+rm -rf /tmp/jetbrains-mono
+
+echo "end of script"
+
