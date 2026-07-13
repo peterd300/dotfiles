@@ -39,7 +39,7 @@
 		the active window is -->
   </placement>
   <theme>
-    <name>Clearlooks-3.4</name>
+    <name>Tokyo Midnight</name>
     <titleLayout>SLIMC</titleLayout>
     <!--
 		Available characters are NDSLIMC, each can occur at most once.
@@ -152,7 +152,7 @@
 	Many programs reserve space automatically, but you can use this in other
 	cases. -->
   <margins>
-    <top>40</top>
+    <top>0</top>
     <bottom>16</bottom>
     <left>16</left>
     <right>16</right>
