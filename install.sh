@@ -1,7 +1,12 @@
 #!/bin/bash
 
+#sync xbps database
+
+sudo xbps-install Suy
+sleep 10
+
 #install open-vmtools-agent for guest in Vmware workstation
-sudo xbps-install -Suy open-vm-tools
+sudo xbps-install -Sy open-vm-tools
 sudo ln -s /etc/sv/vmware-vmblock-fuse /var/service/
 sudo ln -s /etc/sv/vmtoolsd /var/service/
 
@@ -21,8 +26,7 @@ sleep 10
 
 
 # install xorg
-sudo xbps-install -Syu
-sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm
+sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm xinit
 
 # install openbox
 sudo xbps-install -Sy openbox obconf obmenu-generator obconf-qt lxappearance lxappearance-obconf
