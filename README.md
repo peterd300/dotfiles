@@ -1,13 +1,15 @@
 
-# My own dot files and install script for Void Linux system
+# My own dot files and install script Openbox for Void Linux system
 
 
 dot files for 
 
 openbox
+kitty
 polybar
 picom
 htop
+dunst
 
 Pre-requierments for the install script
 
@@ -34,6 +36,13 @@ sudo xbps-install -Sy xbps
 ```
 reboot system
 after reboot login as user and run install script
+```
+git clone https://github.com/peterd300/dotfiles
+cd dotfiles
+chmod +x ./install.sh
+./install.sh
+```
+ 
 
 During installation some basic and default config files are copied.
 
@@ -41,6 +50,6 @@ After reboot copy all files to your homedirectoy nad override exstings
 
 
 Things to do:
-- Proper kitty.conf
+
 - picom doesn;t work in VM workstation 
 - polybar config 
