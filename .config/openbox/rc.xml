@@ -236,6 +236,11 @@
         <command>Discord</command>
       </action>
     </keybind>
+    <keybind key="W-r">
+      <action name="Execute">
+        <command>rofi -show run</command>
+      </action>
+    </keybind>
     <!-- Desktop/Workspace Switching -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop">
