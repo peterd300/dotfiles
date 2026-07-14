@@ -2,7 +2,7 @@
 
 #sync xbps database
 
-sudo xbps-install Suy
+sudo xbps-install -Suy
 sleep 10
 
 #install open-vmtools-agent for guest in Vmware workstation
