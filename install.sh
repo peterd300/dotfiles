@@ -9,11 +9,12 @@ sleep 10
 sudo xbps-install -Sy open-vm-tools
 sudo ln -s /etc/sv/vmware-vmblock-fuse /var/service/
 sudo ln -s /etc/sv/vmtoolsd /var/service/
+sudo sv up vmtoolsd
+sudo sv up vmware-vmblock-fuse
 
-
-# install qemu-agent for promox
+# install qemu-agent for proxmox
 # check qemu-agent vm config
-#  sudo xbps-install -S qemu-guest-agent
+# sudo xbps-install -S qemu-guest-agent
 # sudo ln -s /etc/sv/qemu-guest-agent /var/service/
 
 
@@ -22,7 +23,7 @@ sudo ln -s /etc/sv/vmtoolsd /var/service/
 # first install some usefull programs
 sudo xbps-install -Sy htop btop make git wget unzip nano cmake curl gcc net-tools fastfetch mlocate
 sleep 10
-pause
+
 
 
 # install xorg
@@ -114,25 +115,23 @@ echo "sleep 1 " >> ~/.config/openbox/autostart
 echo "sleep 1 && polybar &" >> ~/.config/openbox/autostart
 echo "# sleep 1 && picom &" >> ~/.config/openbox/autostart
 
-
+# install Jetbrains Mono and Nerd fonts, fonts used in kitty
 sudo xbps-install -Sy wget unzip
-echo install JetbrainsMono font
-
-
+echo install JetbrainsMono fonts
 sudo mkdir -p /usr/local/share/fonts/JetbrainsMono/
 sudo mkdir -p /usr/local/share/fonts/JetbrainsMonoNerd/
 wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
 
-
 unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
 unzip JetBrainsMono.zip -d /tmp/jetbrains-mono-nerd
-
+sleep 5
 sudo mv /tmp/jetbrains-mono/fonts/* /usr/local/share/fonts/JetbrainsMono/.
 sudo mv /tmp/jetbrains-mono-nerd/* /usr/local/share/fonts/JetbrainsMonoNerd/.
 fc-cache -f -v
 sleep 10
 rm -rf /tmp/jetbrains-mono
+rm -rf /tmp/jetbrains-mono-nerd
 
 echo "end of script"
 
