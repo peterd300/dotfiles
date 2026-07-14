@@ -119,9 +119,7 @@ echo "# sleep 1 && picom &" >> ~/.config/openbox/autostart
 
 echo install JetbrainsMono fonts
 sudo mkdir -p /usr/local/share/fonts/JetbrainsMono/
-sudo mkdir -p /usr/local/share/fonts/JetbrainsMonoNerd/
 wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
 
 unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
 
@@ -129,6 +127,7 @@ sleep 5
 sudo mv /tmp/jetbrains-mono/fonts/* /usr/local/share/fonts/JetbrainsMono/.
 
 fc-cache -f -v
+
 sleep 10
 rm -rf /tmp/jetbrains-mono
 
