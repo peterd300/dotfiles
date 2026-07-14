@@ -44,7 +44,7 @@ echo "exec openbox-session" >> ~/.xinitrc
 echo "# exec twm" >> ~/.xinitrc
 
 ## install openbox utils
-sudo xbps-install -Sy polybar tint2 dunst rofi feh xdg-user-dirs xdg-utils nitrogen 
+sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils nitrogen 
 mkdir -p ~/.config/polybar
 
 ## install dbus
@@ -121,7 +121,7 @@ wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
 unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
 mv /tmp/jetbrains-mono/fonts/ttf/*.ttf ~/.local/share/fonts/
 fc-cache -f -v
-
+sleep 10
 rm -rf /tmp/jetbrains-mono
 
 echo "end of script"
