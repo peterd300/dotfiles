@@ -114,6 +114,8 @@ echo "sleep 1 " >> ~/.config/openbox/autostart
 echo "sleep 1 && polybar &" >> ~/.config/openbox/autostart
 echo "# sleep 1 && picom &" >> ~/.config/openbox/autostart
 
+
+sudo xbps-install -Sy wget unzip
 echo install JetbrainsMono font
 
 mkdir -p ~/.local/share/fonts/
