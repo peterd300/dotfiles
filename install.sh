@@ -116,7 +116,7 @@ echo "sleep 1 && polybar &" >> ~/.config/openbox/autostart
 echo "# sleep 1 && picom &" >> ~/.config/openbox/autostart
 
 # install Jetbrains Mono and Nerd fonts, fonts used in kitty
-sudo xbps-install -Sy wget unzip
+
 echo install JetbrainsMono fonts
 sudo mkdir -p /usr/local/share/fonts/JetbrainsMono/
 sudo mkdir -p /usr/local/share/fonts/JetbrainsMonoNerd/
@@ -124,14 +124,14 @@ wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
 
 unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
-unzip JetBrainsMono.zip -d /tmp/jetbrains-mono-nerd
+
 sleep 5
 sudo mv /tmp/jetbrains-mono/fonts/* /usr/local/share/fonts/JetbrainsMono/.
-sudo mv /tmp/jetbrains-mono-nerd/* /usr/local/share/fonts/JetbrainsMonoNerd/.
+
 fc-cache -f -v
 sleep 10
 rm -rf /tmp/jetbrains-mono
-rm -rf /tmp/jetbrains-mono-nerd
+
 
 echo "end of script"
 
