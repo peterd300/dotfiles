@@ -45,7 +45,7 @@ echo "exec openbox-session" >> ~/.xinitrc
 echo "# exec twm" >> ~/.xinitrc
 
 ## install openbox utils
-sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils nitrogen 
+sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils nitrogen xfce4-appfinder
 mkdir -p ~/.config/polybar
 
 ## install dbus
