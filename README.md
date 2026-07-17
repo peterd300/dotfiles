@@ -42,11 +42,16 @@ cd dotfiles
 chmod +x ./install.sh
 ./install.sh
 ```
- 
+
+
 
 During installation some basic and default config files are copied.
 
-After reboot copy all files to your homedirectoy nad override exstings
+After reboot, copy all files to your homedirectoy nand the override exsting files.
+```bash
+cd dotfiles
+cp -R *. ..
+```
 
 
 Things to do:
