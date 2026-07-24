@@ -2,7 +2,7 @@
 sleep 1 && vmware-user &
 xrdb merge ~/.Xresources 
 xbacklight -set 10 &
-xset r rate 200 50 &
+xset r rate 200 30 &
 
 
 
