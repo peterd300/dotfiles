@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #sync xbps database
-
+echo "Syncing Repository"
 sudo xbps-install -Suy
 sleep 10
 
@@ -30,7 +30,7 @@ sleep 10
 sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm xinit xsel xclip
 
 # install openbox
-sudo xbps-install -Sy openbox obconf obmenu-generator obconf-qt lxappearance lxappearance-obconf
+sudo xbps-install -Sy openbox obconf obmenu-generator obconf-qt lxappearance lxappearance-obconf 
 mkdir -p ~/.config/openbox
 sleep 1
 cp /etc/xdg/openbox/rc.xml ~/.config/openbox/
@@ -39,13 +39,13 @@ cp /etc/xdg/openbox/menu.xml ~/.config/openbox/
 
 sleep 2
 
-
+# Just a basic .xinitrc
 echo "exec xterm & " >> ~/.xinitrc
 echo "exec openbox-session" >> ~/.xinitrc
 echo "# exec twm" >> ~/.xinitrc
 
 ## install openbox utils
-sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils nitrogen xfce4-appfinder
+sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils nitrogen xfce4-appfinder nwg-look
 mkdir -p ~/.config/polybar
 
 ## install dbus
@@ -135,6 +135,6 @@ fc-cache -f -v
 sleep 10
 rm -rf /tmp/jetbrains-mono
 
-
+echo
 echo "end of script"
-
+echo
