@@ -3,19 +3,34 @@
 #sync xbps database
 echo "Syncing Repository"
 sudo xbps-install -Suy
+sudo xbps-install -Sy virt-what
 sleep 10
 
-#install open-vmtools-agent for guest in Vmware workstation
-sudo xbps-install -Sy open-vm-tools mesa-vaapi mesa-vmwgfx-dri
-sudo ln -s /etc/sv/vmware-vmblock-fuse /var/service/
-sudo ln -s /etc/sv/vmtoolsd /var/service/
-sudo sv up vmtoolsd
-sudo sv up vmware-vmblock-fuse
+# Automatische detectie van de hypervisor
+VIRT_TYPE=$(sudo virt-what)
 
-# install qemu-agent for proxmox
-# check qemu-agent vm config
-# sudo xbps-install -S qemu-guest-agent
-# sudo ln -s /etc/sv/qemu-guest-agent /var/service/
+if [ "$VIRT_TYPE" = "vmware" ]; then
+    echo "[VINDING] VMware detected! Starting VMware Tools installation..."
+    
+    # Install base and graphical tools, including X11 clipboard support
+    sudo xbps-install -Sy open-vm-tools open-vm-tools-desktop mesa-vaapi mesa-vmwgfx-dri xclip xsel
+    
+    # Enable and start the runit services
+    sudo ln -s /etc/sv/vmware-vmblock-fuse /var/service/
+    sudo ln -s /etc/sv/vmtoolsd /var/service/
+    sudo sv up vmtoolsd
+    sudo sv up vmware-vmblock-fuse
+    
+    # Force X11 clipboard integration for the current desktop environment
+    if [ -d "/etc/xdg/autostart" ]; then
+        sudo cp /etc/xdg/autostart/vmware-user.desktop /etc/xdg/autostart/ 2>/dev/null
+    fi
+    
+    echo "[SUCCESS] VMware Tools successfully installed and activated."
+else
+    echo "[INFO] Virtual environment is: '${VIRT_TYPE:-bare-metal}'. VMware Tools skipped."
+fi
+
 
 
 # install X11 in Voidlinux guest
