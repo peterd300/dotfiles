@@ -27,7 +27,7 @@ sleep 10
 
 
 # install xorg
-sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm xinit
+sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm xinit xsel xclip
 
 # install openbox
 sudo xbps-install -Sy openbox obconf obmenu-generator obconf-qt lxappearance lxappearance-obconf
@@ -36,7 +36,7 @@ sleep 1
 cp /etc/xdg/openbox/rc.xml ~/.config/openbox/
 cp /etc/xdg/openbox/autostart ~/.config/openbox/
 cp /etc/xdg/openbox/menu.xml ~/.config/openbox/
-obmenu-generator -p -i
+
 sleep 2
 
 
@@ -68,7 +68,10 @@ sudo sv up dbus
 
 
 ## install x11 utils (icon theme switch werkt nog niet)
-sudo xbps-install -Sy adwaita-plus turnstile nerd-fonts font-awesome 
+sudo xbps-install -Sy adwaita-plus turnstile font-awesome 
+# temporary disabled very big and slow donwload
+# sudo xbps-install -Sy nerd-fonts
+
 sudo ln -sf /etc/sv/turnstiled/ /var/service/
 sudo sv up turnstiled
 
@@ -108,6 +111,7 @@ obmenu-generator -p -i
 
 # ~/.config/openbox/autostart
 
+echo "sleep 1 && /usr/bin/vmware-user & " >> ~/.config/openbox/autostart
 echo "sleep 1 && pipewire &" >> ~/.config/openbox/autostart
 echo "sleep 1 && wireplumber &" >> ~/.config/openbox/autostart
 echo "sleep 1 && pipewire-pulse &" >> ~/.config/openbox/autostart
