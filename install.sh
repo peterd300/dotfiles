@@ -13,7 +13,7 @@ if [ "$VIRT_TYPE" = "vmware" ]; then
     echo "[VINDING] VMware detected! Starting VMware Tools installation..."
     
     # Install base and graphical tools, including X11 clipboard support
-    sudo xbps-install -Sy open-vm-tools open-vm-tools-desktop mesa-vaapi mesa-vmwgfx-dri xclip xsel
+    sudo xbps-install -Sy open-vm-tools open-vm-tools-desktop mesa-vaapi mesa-vmwgfx-dri 
     
     # Enable and start the runit services
     sudo ln -s /etc/sv/vmware-vmblock-fuse /var/service/
