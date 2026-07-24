@@ -6,7 +6,7 @@ sudo xbps-install -Suy
 sleep 10
 
 #install open-vmtools-agent for guest in Vmware workstation
-sudo xbps-install -Sy open-vm-tools
+sudo xbps-install -Sy open-vm-tools mesa-vaapi mesa-vmwgfx-dri
 sudo ln -s /etc/sv/vmware-vmblock-fuse /var/service/
 sudo ln -s /etc/sv/vmtoolsd /var/service/
 sudo sv up vmtoolsd
@@ -30,7 +30,7 @@ sleep 10
 sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm xinit xsel xclip
 
 # install openbox
-sudo xbps-install -Sy openbox obconf obmenu-generator obconf-qt lxappearance lxappearance-obconf 
+sudo xbps-install -Sy openbox obconf obmenu-generator obconf-qt lxappearance lxappearance-obconf nwg-look
 mkdir -p ~/.config/openbox
 sleep 1
 cp /etc/xdg/openbox/rc.xml ~/.config/openbox/
@@ -45,7 +45,7 @@ echo "exec openbox-session" >> ~/.xinitrc
 echo "# exec twm" >> ~/.xinitrc
 
 ## install openbox utils
-sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils nitrogen xfce4-appfinder nwg-look
+sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils nitrogen xfce4-appfinder 
 mkdir -p ~/.config/polybar
 
 ## install dbus
