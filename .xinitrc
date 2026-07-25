@@ -1,5 +1,6 @@
 
 sleep 1 && vmware-user &
+xrandr --output Virtual-1 --mode 1920x1080
 xrdb merge ~/.Xresources 
 xbacklight -set 10 &
 xset r rate 200 30 &
