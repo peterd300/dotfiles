@@ -42,7 +42,7 @@ sleep 10
 
 
 # install xorg
-sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm xinit xsel xclip
+sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm xinit xsel xclip xcolor
 
 # install openbox
 sudo xbps-install -Sy openbox obconf obmenu-generator obconf-qt lxappearance lxappearance-obconf nwg-look
@@ -54,7 +54,9 @@ cp /etc/xdg/openbox/menu.xml ~/.config/openbox/
 
 sleep 2
 
-# Just a basic .xinitrc
+# Create a basic .xinitrc
+
+echo "xrandr --output Virtual-1 --mode 1920x1080 " >> ~/.xinitrc
 echo "exec xterm & " >> ~/.xinitrc
 echo "exec openbox-session" >> ~/.xinitrc
 echo "# exec twm" >> ~/.xinitrc
@@ -84,7 +86,7 @@ sudo sv up dbus
 
 ## install x11 utils (icon theme switch werkt nog niet)
 sudo xbps-install -Sy adwaita-plus turnstile font-awesome 
-# temporary disabled very big and slow donwload
+# temporary disabled very big and slow download
 # sudo xbps-install -Sy nerd-fonts
 
 sudo ln -sf /etc/sv/turnstiled/ /var/service/
