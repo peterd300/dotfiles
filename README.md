@@ -1,6 +1,7 @@
 
 # My own dot files and install script Openbox for Void Linux system
 
+I test this script in Vmware Workstation Pro 25 / 26
 
 dot files for 
 
@@ -53,8 +54,10 @@ cd dotfiles
 cp -R .* ..
 ```
 
+Sources used:
+
+- Just a linux guy:  openbox configuration files
+
 
 Things to do:
 
-- picom doesn;t work in VM workstation 
-- polybar config 
