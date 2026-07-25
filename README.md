@@ -8,12 +8,12 @@ With CRTL-ALT F2-F5, normal terminal
 
 dot files for 
 
-openbox 	- windows manager
-kitty 		- terminal
-polybar 	- X11 Statusbar
-picom 		- X11 compositor
-htop 
-dunst 		- X11 notification tool
+- openbox 	- windows manager
+- kitty 		- terminal
+- polybar 	- X11 Statusbar
+- picom 		- X11 compositor
+- htop 
+- dunst 		- X11 notification tool
 
 Pre-requierments for the install script
 
@@ -60,7 +60,8 @@ cp -R .* ..
 Sources used:
 
 - Just a linux guy:  openbox configuration files
-
+- Big thank you for Radley Leweis for his zsh config files
+  https://github.com/radleylewis/zsh for installation.
 
 Things to do:
 - implementing zsh shell
