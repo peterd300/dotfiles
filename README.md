@@ -3,18 +3,21 @@
 
 I test this script in Vmware Workstation Pro 25 / 26
 
+When you login on TTY1 , startx in automatic executed. (via .bash_profile)
+With CRTL-ALT F2-F5, normal terminal
+
 dot files for 
 
-openbox
-kitty
-polybar
-picom
-htop
-dunst
+openbox 	- windows manager
+kitty 		- terminal
+polybar 	- X11 Statusbar
+picom 		- X11 compositor
+htop 
+dunst 		- X11 notification tool
 
 Pre-requierments for the install script
 
-after installation and first reboot
+after installation and first reboot in Void Linux
 login as root
 ## change shell to bash shell as root
 ```bash
@@ -48,7 +51,7 @@ chmod +x ./install.sh
 
 During installation some basic and default config files are copied.
 
-After reboot, copy all files to your homedirectoy nand the override exsting files.
+After reboot, copy all from dotfiles directory to your homedirectoy with override exsiting files.
 ```bash
 cd dotfiles
 cp -R .* ..
@@ -60,4 +63,5 @@ Sources used:
 
 
 Things to do:
+- implementing zsh shell
 
