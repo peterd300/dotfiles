@@ -143,14 +143,15 @@ sudo mkdir -p /usr/local/share/fonts/JetbrainsMono/
 wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
 
 unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
-
-sleep 5
+sleep 1
 sudo mv /tmp/jetbrains-mono/fonts/* /usr/local/share/fonts/JetbrainsMono/.
 
+# re-generate font-cache
 fc-cache -f -v
 
-sleep 10
+sleep 5
 rm -rf /tmp/jetbrains-mono
+rm -f ~/JetBrainsMono-2.304.zip
 
 echo
 echo "end of script"
