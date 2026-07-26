@@ -93,7 +93,7 @@ sudo ln -sf /etc/sv/turnstiled/ /var/service/
 sudo sv up turnstiled
 
 ## install favorite X11 programs
-sudo xbps-install -Sy alacritty falkon kitty st flameshot gmrun
+sudo xbps-install -Sy alacritty falkon kitty st flameshot gmrun xbindkeys xdotool xev
 mkdir -p ~/screenshots
 
 #install filemanager + jpg viewer
