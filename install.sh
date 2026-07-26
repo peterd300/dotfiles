@@ -134,7 +134,7 @@ echo "sleep 1 && wireplumber &" >> ~/.config/openbox/autostart
 echo "sleep 1 && pipewire-pulse &" >> ~/.config/openbox/autostart
 echo "sleep 1 " >> ~/.config/openbox/autostart
 echo "sleep 1 && polybar &" >> ~/.config/openbox/autostart
-echo "# sleep 1 && picom &" >> ~/.config/openbox/autostart
+echo "sleep 1 && picom &" >> ~/.config/openbox/autostart
 
 # install Jetbrains Mono and Nerd fonts, fonts used in kitty
 
@@ -145,6 +145,7 @@ wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
 unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
 sleep 1
 sudo mv /tmp/jetbrains-mono/fonts/* /usr/local/share/fonts/JetbrainsMono/.
+rm -f ~/JetBrainsMono-2.304.zip
 
 # re-generate font-cache
 fc-cache -f -v
