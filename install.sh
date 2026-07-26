@@ -115,7 +115,7 @@ cp /usr/share/examples/picom/picom.sample.conf ~/.config/picom/picom.conf
 sudo xbps-install -Sy pipewire alsa-plugins-pulseaudio wireplumber pavucontrol pamixer
 
 ## give local user access to audio and video device
-sudo usermod -aG audio,video $(whoami)
+sudo usermod -aG audio,video,input  $(whoami)
 
 # create tmp dir for pipewire, wthout pipwire  don't start
 #.bashrc
