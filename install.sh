@@ -160,5 +160,5 @@ rm -rf /tmp/jetbrains-mono
 rm -f ~/JetBrainsMono-2.304.zip
 
 echo
-echo "end of script"
+echo "end of the installation script, "cp -R .* .." copy the config files"
 echo
