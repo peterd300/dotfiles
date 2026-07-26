@@ -123,18 +123,23 @@ sudo usermod -aG audio,video $(whoami)
 # mkdir /tmp/$(id -u)
 # export XDG_RUNTIME_DIR=/tmp/$(id -u)
 
-# create again menu
+# create again openbox menu
 obmenu-generator -p -i
 
-# ~/.config/openbox/autostart
+# create ~/.config/openbox/autostart
 
-echo "sleep 1 && /usr/bin/vmware-user & " >> ~/.config/openbox/autostart
-echo "sleep 1 && pipewire &" >> ~/.config/openbox/autostart
-echo "sleep 1 && wireplumber &" >> ~/.config/openbox/autostart
-echo "sleep 1 && pipewire-pulse &" >> ~/.config/openbox/autostart
-echo "sleep 1 " >> ~/.config/openbox/autostart
-echo "sleep 1 && polybar &" >> ~/.config/openbox/autostart
-echo "sleep 1 && picom &" >> ~/.config/openbox/autostart
+cat <<EOF > ~/.config/openbox/autostart
+sleep 1 && /usr/bin/vmware-user &
+sleep 1 && pipewire &
+sleep 1 && wireplumber &
+sleep 1 && pipewire-pulse &
+sleep 1 
+sleep 1 && polybar &
+sleep 1 && picom &
+EOF
+
+
+
 
 # install Jetbrains Mono and Nerd fonts, fonts used in kitty
 
