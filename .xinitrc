@@ -1,3 +1,18 @@
+# Vraag het exacte pad van de Documents map op via xdg-user-dir
+DOCS_DIR=$(xdg-user-dir DOCUMENTS)
+
+# Controleer of de map NIET bestaat
+if [ ! -d "$DOCS_DIR" ]; then
+    echo "De map Documents bestaat niet op het pad: $DOCS_DIR"
+    echo "Mappen aanmaken/herstellen via xdg-user-dirs-update..."
+    
+    # Herstel de standaard XDG mappen van de gebruiker
+    xdg-user-dirs-update
+else
+    echo "De map Documents bestaat al op: $DOCS_DIR"
+fi
+
+
 
 # enable copy paste in vm
 sleep 1 && vmware-user &
