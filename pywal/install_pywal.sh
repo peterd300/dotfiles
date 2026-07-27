@@ -3,7 +3,7 @@
 # install walbox - pywal theme for openbox
 # copy several config files for implementing for pywall theme
 
-cd ~/dotfiles/pywall
+cd ~/dotfiles/pywal
 
 sudo xbps-install -Suy
 sudo xbps-install -Sy gtk2-engines pywal
@@ -14,7 +14,4 @@ cd walbox
 ./install.sh
 cd ..
 
-cp -R ~/dotfiles/pywall/.config/* ~/.config/.
-
-
-openbox --reconfigure
+cp -Rv ~/dotfiles/pywall/.config/* ~/.config
