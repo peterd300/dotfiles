@@ -62,6 +62,8 @@ Sources used:
 - Just a linux guy:  openbox configuration files
 - Big thank you for Radley Leweis for his zsh config files
   https://github.com/radleylewis/zsh for installation.
+- pywal for generating color pallet
+- walbox openbox theme for pywal
 
 Things to do:
 - implementing zsh shell
