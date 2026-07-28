@@ -60,8 +60,7 @@ cp -R .* ..
 Sources used:
 
 - Just a linux guy:  openbox configuration files
-- Big thank you for Radley Leweis for his zsh config files
-  https://github.com/radleylewis/zsh for installation.
+- Big thanksfor Radley Leweis for his zsh config files (https://github.com/radleylewis/zsh ).
 - pywal for generating color pallet by Dynalaraps ( https://github.com/dylanaraps/pywal)
 - walbox openbox theme for pywal by edisile ( https://github.com/edisile/walbox )
  
