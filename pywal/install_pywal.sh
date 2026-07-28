@@ -9,9 +9,9 @@ sudo xbps-install -Suy
 sudo xbps-install -Sy gtk2-engines pywal
 
 # install walbox theme for openbox
-git clone https://github.com/edisile/walbox.git
+# git clone https://github.com/edisile/walbox.git
 cd walbox
 ./install.sh
 cd ..
 
-cp -Rv ~/dotfiles/pywall/.config/* ~/.config
+# cp -Rv ~/dotfiles/pywall/.config/* ~/.config
