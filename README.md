@@ -62,9 +62,16 @@ Sources used:
 - Just a linux guy:  openbox configuration files
 - Big thank you for Radley Leweis for his zsh config files
   https://github.com/radleylewis/zsh for installation.
-- pywal for generating color pallet
-- walbox openbox theme for pywal
+- pywal for generating color pallet by Dynalaraps ( https://github.com/dylanaraps/pywal)
+- walbox openbox theme for pywal by edisile ( https://github.com/edisile/walbox )
+ 
+## Work in progress
+- implementing pywall for several apps
+- done :
+	- st , kitty, openbox, polybar
+- to do:   thunar, rofi
 
-Things to do:
+
+## Things to do:
 - implementing zsh shell
 
