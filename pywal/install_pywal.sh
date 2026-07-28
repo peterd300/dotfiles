@@ -15,3 +15,5 @@ cd walbox
 cd ..
 
 cp -Rv ~/dotfiles/pywal/.config/* ~/.config
+
+ln -sf ~/.cache/wal/colors-gtk.css ~/.config/gtk-3.0/gtk.css

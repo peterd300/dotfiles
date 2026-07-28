@@ -1,0 +1,144 @@
+/*
+ * Pywal GTK3 template
+ * Save this file as: ~/.config/wal/templates/colors-gtk.css
+ * Pywal will regenerate ~/.cache/wal/colors-gtk.css from it every time
+ * you run `wal -i <image>`.
+ *
+ * Then symlink it into your GTK3 config so apps (Thunar, etc.) pick it up:
+ *   mkdir -p ~/.config/gtk-3.0
+ *   ln -sf ~/.cache/wal/colors-gtk.css ~/.config/gtk-3.0/gtk.css
+ */
+
+@define-color background {background};
+@define-color foreground {foreground};
+@define-color cursor     {cursor};
+
+@define-color color0  {color0};
+@define-color color1  {color1};
+@define-color color2  {color2};
+@define-color color3  {color3};
+@define-color color4  {color4};
+@define-color color5  {color5};
+@define-color color6  {color6};
+@define-color color7  {color7};
+@define-color color8  {color8};
+@define-color color9  {color9};
+@define-color color10 {color10};
+@define-color color11 {color11};
+@define-color color12 {color12};
+@define-color color13 {color13};
+@define-color color14 {color14};
+@define-color color15 {color15};
+
+/* ---- General window / widget backgrounds ---- */
+window,
+.background {
+    background-color: @background;
+    color: @foreground;
+}
+
+/* ---- Headerbars / titlebars (Thunar's top bar) ---- */
+headerbar,
+.titlebar {
+    background-color: @color0;
+    color: @foreground;
+    border-color: @color0;
+    box-shadow: none;
+}
+
+/* ---- Sidebar / places panel in Thunar ---- */
+.sidebar,
+placessidebar {
+    background-color: @color0;
+    color: @foreground;
+}
+
+.sidebar row:selected,
+placessidebar row:selected {
+    background-color: @color4;
+    color: @background;
+}
+
+/* ---- File view / icon view / list view ---- */
+treeview,
+iconview,
+.view {
+    background-color: @background;
+    color: @foreground;
+}
+
+treeview:selected,
+iconview:selected,
+.view:selected {
+    background-color: @color4;
+    color: @background;
+}
+
+/* ---- Selected but not focused (e.g. clicked away) ---- */
+treeview:selected:not(:focus),
+iconview:selected:not(:focus) {
+    background-color: shade(@color4, 0.85);
+}
+
+/* ---- Buttons and toolbars ---- */
+button,
+toolbar {
+    background-color: @color0;
+    color: @foreground;
+    border-color: @color8;
+}
+
+button:hover {
+    background-color: @color8;
+}
+
+button:active,
+button:checked {
+    background-color: @color4;
+    color: @background;
+}
+
+/* ---- Menus (right-click context menu, etc.) ---- */
+menu,
+.menu,
+menuitem {
+    background-color: @color0;
+    color: @foreground;
+}
+
+menuitem:hover {
+    background-color: @color4;
+    color: @background;
+}
+
+/* ---- Scrollbars ---- */
+scrollbar {
+    background-color: @color0;
+}
+
+scrollbar slider {
+    background-color: @color8;
+    border-radius: 6px;
+}
+
+scrollbar slider:hover {
+    background-color: @color4;
+}
+
+/* ---- Entry / address bar / search box ---- */
+entry {
+    background-color: @color0;
+    color: @foreground;
+    border-color: @color8;
+    caret-color: @cursor;
+}
+
+entry:focus {
+    border-color: @color4;
+}
+
+/* ---- Tooltips ---- */
+tooltip {
+    background-color: @color0;
+    color: @foreground;
+}
