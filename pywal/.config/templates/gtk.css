@@ -1,0 +1,39 @@
+/* Pywal GTK3 Template for Thunar */
+
+@define-color wal_bg {color0};
+@define-color wal_fg {color7};
+@define-color wal_accent {color1};
+@define-color wal_bg_alt {color8};
+
+/* Sidebar and Main Window Background */
+thunar-window, 
+.thunar,
+thunar-side-pane,
+.sidebar,
+GtkTreeView,
+GtkIconView {
+    background-color: @wal_bg;
+    color: @wal_fg;
+}
+
+/* Selected Items / Active Rows */
+thunar-window .view:selected,
+GtkTreeView:selected,
+GtkIconView:selected {
+    background-color: @wal_accent;
+    color: @wal_bg;
+}
+
+/* Toolbar and Pathbar Buttons */
+.toolbar,
+thunar-location-entry,
+thunar-location-buttons {
+    background-color: @wal_bg_alt;
+    color: @wal_fg;
+}
+
+/* Grid lines and Borders */
+thunar-window border,
+GtkTreeView.separator {
+    color: @wal_bg_alt;
+}
