@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install pywal16 via pip3
-sudo xbps-install -S python3-pipenv python3-pipx ImageMagick
+sudo xbps-install -Sy python3-pipenv python3-pipx ImageMagick
 
 pipx install pywal16
 
