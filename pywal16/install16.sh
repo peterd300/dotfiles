@@ -14,7 +14,7 @@ source ~/.bashrc
 
 # install walbox theme for openbox
 git clone https://github.com/edisile/walbox.git
-cd install.sh walbox/.
+cp install.sh walbox/.
 cd walbox
 ./install.sh
 cd ..
@@ -29,6 +29,7 @@ cp -Rv ~/dotfiles/pywal16/.config/* ~/.config
 # copy script for changing wallpaper, because wal runs in pip sandbox
 cp -v ~/dotfiles/pywal16/chwal.sh ~/.local/bin/.
 
+source ~/.bashrc
 
 # which wal
 wal -v

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/.bashrc
+
 config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
 cache_dir="${XDG_CACHE_DIR:-$HOME/.cache}"
 
