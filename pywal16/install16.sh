@@ -32,8 +32,8 @@ cp -v ~/dotfiles/pywal16/chwal.sh ~/.local/bin/.
 source ~/.bashrc
 
 # which wal
-wal -v
+~/.local/bin/wal -v
 
-chwal.sh  ~/.wallpaper/blue-mountains.jpg
+~/.local/bin/chwal.sh  ~/.wallpaper/blue-mountains.jpg
 openbox --reconfigure
 
