@@ -25,9 +25,14 @@ rm -rf .git
 
 # copy several config files
 cp -Rv ~/dotfiles/pywal16/.config/* ~/.config
-which wal
+
+# copy script for changing wallpaper, because wal runs in pip sandbox
+cp -v ~/dotfiles/pywal16/chwal.sh ~/.local/bin/.
+
+
+# which wal
 wal -v
 
-wal -i ~/.wallpaper/blue-mountains.jpg
+chwal.sh  ~/.wallpaper/blue-mountains.jpg
 openbox --reconfigure
 
