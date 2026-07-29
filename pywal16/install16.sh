@@ -14,6 +14,7 @@ source ~/.bashrc
 
 # install walbox theme for openbox
 git clone https://github.com/edisile/walbox.git
+cd install.sh walbox/.
 cd walbox
 ./install.sh
 cd ..
@@ -27,4 +28,6 @@ cp -Rv ~/dotfiles/pywal16/.config/* ~/.config
 which wal
 wal -v
 
+wal -i ~/.wallpaper/blue-mountains.jpg
+openbox --reconfigure
 
