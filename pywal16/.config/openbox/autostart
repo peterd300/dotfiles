@@ -1,0 +1,24 @@
+
+
+lxpolkit &
+# dunst -config ~/.config/dunst/dunstrc &
+dunst -config ~/.cache/wal/dunstrc &
+
+# picom --config ~/.config/picom/picom.conf &
+# feh --bg-fill ~/.config/openbox/wallpaper/blue-mountains.jpg &
+
+# Try to restore the last pywal color scheme and wallpaper
+~/.fehbg&
+
+
+## Polybar or tint
+polybar -c ~/.config/polybar/config.ini &
+
+# First-login welcome (shown once, dismissable)
+if [ ! -f "$HOME/.cache/openbox/welcomed" ]; then
+	mkdir -p "$HOME/.cache/openbox"
+	touch "$HOME/.cache/openbox/welcomed"
+	(sleep 3; notify-send -u normal -t 15000 \
+		"Welcome to Openbox" \
+		"Press Super + / anytime to see all keybindings.&#10;See ~/QUICKSTART-openbox.md for a cheat sheet.") &
+fi
