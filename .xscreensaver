@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.15 for peter on Sun Jul 12 15:28:33 2026.
+# Written by xscreensaver-settings 6.15 for peter on Wed Jul 29 23:36:17 2026.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:10:00
@@ -29,7 +29,7 @@ chooseRandomImages: False
 imageDirectory:	
 
 mode:		one
-selected:	37
+selected:	74
 
 textMode:	url
 textLiteral:	XScreenSaver
@@ -37,7 +37,7 @@ textFile:
 textProgram:	fortune
 textURL:	https://en.wikipedia.org/w/index.php?title=Special:NewPages&feed=rss
 dialogTheme:	default
-settingsGeom:	370,166 731,197
+settingsGeom:	221,36 775,244
 
 programs:								      \
 				maze --root				    \n\
@@ -56,10 +56,12 @@ programs:								      \
 				decayscreen --root			    \n\
 				flame --root				    \n\
 				halo --root				    \n\
-				slidescreen --root			    \n\
+				slidescreen --root --delay 88525 --delay2     \
+				  409836 --duration 78 --increment 5	      \
+				  --grid-size 408 --fps			    \n\
 				pedal --root				    \n\
 				bouboule --root				    \n\
--				braid --root				    \n\
+-				braid --root --delay 92623 --fps	    \n\
 				coral --root				    \n\
 				deco --root				    \n\
 				drift --root				    \n\
@@ -80,7 +82,8 @@ programs:								      \
   GL: 				pipes --root --cycles 25		    \n\
 				rdbomb --root				    \n\
   GL: 				rubik --root				    \n\
--				sierpinski --root			    \n\
+-				sierpinski --root --delay 844262 --count      \
+				  5578 --ncolors 128 --fps		    \n\
 				slip --root				    \n\
   GL: 				sproingies --root			    \n\
 				starfish --root				    \n\
@@ -106,20 +109,23 @@ programs:								      \
 				moire2 --root				    \n\
   GL: 				sonar --root				    \n\
   GL: 				stairs --root				    \n\
-				truchet --root				    \n\
+				truchet --root --delay 1000000 --fps	    \n\
 -				vidwhacker --root			    \n\
 -				webcollage --root			    \n\
 				blaster --root				    \n\
 				bumps --root				    \n\
 				ccurve --root				    \n\
 				compass --root				    \n\
-				deluxe --root				    \n\
--				demon --root				    \n\
+				deluxe --root --delay 43443 --thickness	      \
+				  60 --count 10 --fps			    \n\
+-				demon --root --delay 100000 --ncolors 130     \
+				  --size 40 --fps			    \n\
 - GL: 				extrusion --root			    \n\
 -				loop --root				    \n\
 				penetrate --root			    \n\
 				petri --root				    \n\
-				phosphor --root				    \n\
+				phosphor --root --delay 79508 --scale 5	      \
+				  --ticks 31 --fps			    \n\
   GL: 				pulsar --root				    \n\
 				ripples --root				    \n\
 				shadebobs --root			    \n\
@@ -146,7 +152,7 @@ programs:								      \
 				speedmine --root			    \n\
   GL: 				starwars --root				    \n\
   GL: 				stonerview --root			    \n\
-				vermiculate --root			    \n\
+				vermiculate --root --fps		    \n\
 				whirlwindwarp --root			    \n\
 				zoom --root				    \n\
 				anemone --root				    \n\
@@ -166,11 +172,14 @@ programs:								      \
   GL: 				queens --root				    \n\
 - GL: 				sballs --root				    \n\
   GL: 				spheremonics --root			    \n\
-				twang --root				    \n\
+				twang --root --delay 94262 --duration 15      \
+				  --event-chance 0.004 --friction 0.007	      \
+				  --springiness 0 --transference 0	      \
+				  --tile-size 208			    \n\
 - GL: 				antspotlight --root			    \n\
 				apple2 --root				    \n\
   GL: 				atunnel --root				    \n\
-				barcode --root				    \n\
+				barcode --root --delay 85246		    \n\
   GL: 				blinkbox --root				    \n\
   GL: 				blocktube --root			    \n\
   GL: 				bouncingcow --root			    \n\
@@ -211,7 +220,8 @@ programs:								      \
 				wormhole --root				    \n\
 - GL: 				antmaze --root				    \n\
   GL: 				boing --root				    \n\
-				boxfit --root				    \n\
+				boxfit --root --delay 88525 --count 11	      \
+				  --fps					    \n\
   GL: 				carousel --root				    \n\
 				celtic --root				    \n\
   GL: 				crackberg --root			    \n\
