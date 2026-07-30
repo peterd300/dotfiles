@@ -12,6 +12,7 @@ alias ll='ls -al --color=auto'
 alias df='df -h'
 alias du='du -h'
 alias nano='nano -l'
+alias ff='fastfetch'
 
 # xbps aliases
 alias xi='sudo xbps-install -Sy'
@@ -22,7 +23,7 @@ alias xq='sudo xbps-query -Rs'
 # Git aliases
 alias gp="git push -u origin main"
 alias gsave="git commit -m 'save'"
-alias gm="git commit -m"
+alias gm="git commit"
 alias gs="git status"
 alias gc="git clone"
 
