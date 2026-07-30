@@ -10,7 +10,7 @@ sleep 10
 VIRT_TYPE=$(sudo virt-what)
 
 if [ "$VIRT_TYPE" = "vmware" ]; then
-    echo "[VINDING] VMware detected! Starting VMware Tools installation..."
+    echo "[FINDING] VMware detected! Starting VMware Tools installation..."
     
     # Install base and graphical tools, including X11 clipboard support
     sudo xbps-install -Sy open-vm-tools mesa-vaapi mesa-vmwgfx-dri 
@@ -93,7 +93,7 @@ sudo ln -sf /etc/sv/turnstiled/ /var/service/
 sudo sv up turnstiled
 
 ## install favorite X11 programs
-sudo xbps-install -Sy alacritty falkon kitty st flameshot gmrun xbindkeys xdotool xev
+sudo xbps-install -Sy alacritty falkon kitty flameshot gmrun xbindkeys xdotool xev
 mkdir -p ~/screenshots
 
 #install filemanager + jpg viewer
@@ -160,5 +160,5 @@ rm -rf /tmp/jetbrains-mono
 rm -f ~/JetBrainsMono-2.304.zip
 
 echo
-echo "end of the installation script, "cp -R .* .." copy the config files"
+echo "end of the installation script, "cp -R .* .."  copy the .config files to homedir"
 echo
