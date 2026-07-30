@@ -47,6 +47,12 @@ chmod +x ./install.sh
 ./install.sh
 ```
 
+## install pywal16
+
+```bash
+cd ~/dotfiles/pywal16
+./install_pywal16.sh
+```
 
 
 During installation some basic and default config files are copied.
@@ -56,21 +62,24 @@ After reboot, copy all from dotfiles directory to your homedirectoy with overrid
 cd dotfiles
 cp -R .* ..
 ```
+logout and login again, to start Openbox Windows Manager. (Only on TTY1 starts X11), other TTYs starts bash shell
+
 
 Sources used:
 
-- Just a linux guy:  openbox configuration files
-- Big thanksfor Radley Leweis for his zsh config files (https://github.com/radleylewis/zsh ).
-- pywal for generating color pallet by Dynalaraps ( https://github.com/dylanaraps/pywal)
+- Just a linux guy:  openbox configuration files & .bashrc
+- Big thanks for Radley Leweis for his zsh config files (https://github.com/radleylewis/zsh ).
+- pywal16 for generating color pallet 
 - walbox openbox theme for pywal by edisile ( https://github.com/edisile/walbox )
  
 ## Work in progress
-- implementing pywall for several apps
+- implementing pywal16 for several apps
 - done :
 	- st , kitty, openbox, polybar
-- to do:   thunar, rofi
+	- to do:   thunar, rofi, dunst
 
 
 ## Things to do:
 - implementing zsh shell
+- installation nvim
 
