@@ -22,7 +22,7 @@ alias xq='sudo xbps-query -Rs'
 # Git aliases
 alias gp="git push -u origin main"
 alias gsave="git commit -m 'save'"
-alias gm="git commit -m '$1'"
+alias gm="git commit -m"
 alias gs="git status"
 alias gc="git clone"
 

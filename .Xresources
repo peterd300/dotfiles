@@ -13,6 +13,11 @@ st.borderpx: 20
 st.alpha: 1.0 
 st.font:           JetBrainsMono Nerd Font:style:medium:pixelsize=25
 
+XTerm*faceName: Monospace
+XTerm*faceSize: 12
+
+
+
 #define base00 #282c34
 #define base01 #353b45
 #define base02 #3e4451
