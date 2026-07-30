@@ -14,7 +14,7 @@ wal -nqi "$(cat "$cache_dir/wal/wal")"
 
 # 3. Kopieer de Openbox thema map
 mkdir -p "$HOME/.themes"
-cp -r Walbox "$HOME/.themes/Walbox"
+cp -Rv Walbox "$HOME/.themes/."
 
 # 4. Verwijder een eventuele oude symlink of bestand om fouten te voorkomen
 rm -f "$HOME/.themes/Walbox/openbox-3/themerc"
