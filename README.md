@@ -14,6 +14,7 @@ dot files for
 - picom 		- X11 compositor
 - htop 
 - dunst 		- X11 notification tool
+- zsh 
 
 Pre-requierments for the install script
 
@@ -69,6 +70,7 @@ Sources used:
 
 - Just a linux guy:  openbox configuration files & .bashrc
 - Big thanks for Radley Leweis for his zsh config files (https://github.com/radleylewis/zsh ).
+- Dream of Autonomy for this minimalistic .zshrc (dreamsofautonomy/zensh/blob/main/.zshrc)
 - pywal16 for generating color pallet 
 - walbox openbox theme for pywal by edisile ( https://github.com/edisile/walbox )
  
@@ -80,6 +82,6 @@ Sources used:
 
 
 ## Things to do:
-- implementing zsh shell
+
 - installation nvim
 
