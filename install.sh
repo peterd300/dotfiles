@@ -159,6 +159,14 @@ sleep 5
 rm -rf /tmp/jetbrains-mono
 rm -f ~/JetBrainsMono-2.304.zip
 
+# installation of zsh
+# big this for Dreams of Automony
+# https://github.com/dreamsofautonomy/zensh/blob/main/.zshrc
+sudo xbps-install Sy zsh fzf zoxide
+
+
+
+
 echo
 echo "end of the installation script, "cp -R .* .."  copy the .config files to homedir"
 echo
