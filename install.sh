@@ -139,10 +139,14 @@ sleep 1 && picom &
 EOF
 
 
+# 1. Generate a new UUID and populate the machine-id file
+sudo dbus-uuidgen --ensure=/etc/machine-id
+
+# 2. Ensure the D-Bus library can also find it in its standard location
+sudo ln -sf /etc/machine-id /var/lib/dbus/machine-id
 
 
 # install Jetbrains Mono and Nerd fonts, fonts used in kitty
-
 echo install JetbrainsMono fonts
 sudo mkdir -p /usr/local/share/fonts/JetbrainsMono/
 wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
