@@ -74,14 +74,14 @@ sudo sv up dbus
 ## install elogind
 sudo xbps-install -Sy elogind dbus-elogind polkit polkit-elogind 
 sleep 1
-sudo ln -s /etc/sv/elogind /var/service/
+sudo ln -sf /etc/sv/elogind /var/service/
 sudo ln -sf /etc/sv/polkitd /var/service/
 sudo sv up dbus
+sudo sv up elogind
 
 ## install lightdm
 # sudo xbps-install -Sy lightdm lightdm-gtk-greeter
-# sudo ln -s /etc/sv/lightdm /var/service/
-
+# sudo ln -sf /etc/sv/lightdm /var/service/
 
 
 ## install x11 utils (icon theme switch werkt nog niet)
