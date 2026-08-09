@@ -166,7 +166,7 @@ rm -f ~/JetBrainsMono-2.304.zip
 # installation of zsh
 # big this for Dreams of Automony
 # https://github.com/dreamsofautonomy/zensh/blob/main/.zshrc
-sudo xbps-install Sy zsh fzf zoxide
+sudo xbps-install -Sy zsh fzf zoxide
 
 
 
