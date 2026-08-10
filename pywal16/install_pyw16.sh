@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # install pywal16 via pip3
 sudo xbps-install -Sy python3-pipenv python3-pipx ImageMagick
