@@ -13,11 +13,11 @@ cp themerc "$config_dir/wal/templates/themerc"
 wal -nqi "$(cat "$cache_dir/wal/wal")"
 
 # 3. Kopieer de Openbox thema map
-mkdir -p "$HOME/.themes"
-cp -Rv Walbox "$HOME/.themes/."
+mkdir -p "$HOME/.local/share/themes"
+cp -Rv Walbox "$HOME/.local/share/themes/."
 
 # 4. Verwijder een eventuele oude symlink of bestand om fouten te voorkomen
-rm -f "$HOME/.themes/Walbox/openbox-3/themerc"
+rm -f "$HOME/.local/share/themes/Walbox/openbox-3/themerc"
 
 # 5. Maak de juiste symlink naar het gegenereerde cache-bestand
-ln --symbolic "$cache_dir/wal/themerc" "$HOME/.themes/Walbox/openbox-3/themerc"
+ln --symbolic "$cache_dir/wal/themerc" "$HOME/.local/share/themes/Walbox/openbox-3/themerc"
