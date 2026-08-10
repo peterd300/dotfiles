@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #sync xbps database
 echo "Syncing Repository"
