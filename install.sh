@@ -150,11 +150,13 @@ sudo ln -sf /etc/machine-id /var/lib/dbus/machine-id
 # install Jetbrains Mono and Nerd fonts, fonts used in kitty
 echo install JetbrainsMono fonts
 sudo mkdir -p /usr/local/share/fonts/JetbrainsMono/
+mkdir -p ~/.local/share/fonts
+
 wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
 
 unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
 sleep 1
-sudo mv /tmp/jetbrains-mono/fonts/* ~/.local/fonts/JetbrainsMono/.
+sudo mv /tmp/jetbrains-mono/fonts/* ~/.local/share/fonts/JetbrainsMono/.
 rm -f ~/dotfiles/JetBrainsMono-2.304.zip
 
 # re-generate font-cache
