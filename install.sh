@@ -47,6 +47,7 @@ sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm x
 # install openbox
 sudo xbps-install -Sy openbox obconf obmenu-generator obconf-qt lxappearance lxappearance-obconf nwg-look
 mkdir -p ~/.config/openbox
+mkdir -p ~/.local
 sleep 1
 cp /etc/xdg/openbox/rc.xml ~/.config/openbox/
 cp /etc/xdg/openbox/autostart ~/.config/openbox/
@@ -153,7 +154,7 @@ wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
 
 unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
 sleep 1
-sudo mv /tmp/jetbrains-mono/fonts/* /usr/local/share/fonts/JetbrainsMono/.
+sudo mv /tmp/jetbrains-mono/fonts/* ~/.local/fonts/JetbrainsMono/.
 rm -f ~/dotfiles/JetBrainsMono-2.304.zip
 
 # re-generate font-cache
