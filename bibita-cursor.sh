@@ -1,5 +1,9 @@
 #/usr/bin/env bash
 
+# info : https://github.com/ful1e5/Bibata_Cursor/releases#release-v2.0.7
+# https://github.com/ful1e5/Bibata_Cursor
+
+
 latest_version=v2.0.7
 
 mkdir -p ~/.local/share/icons
@@ -18,6 +22,7 @@ sleep 2
 mv Bibata-Modern-Classic/ ~/.local/share/icons/
 mv Bibata-Modern-Ice-Right/ ~/.local/share/icons/   # Install to local users
 
+# activate cursor for X11 
 echo "Xcursor.theme: Bibata-Modern-Classic" >> ~.Xresources
 
 
