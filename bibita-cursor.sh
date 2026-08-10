@@ -23,7 +23,7 @@ mv Bibata-Modern-Classic/ ~/.local/share/icons/
 mv Bibata-Modern-Ice-Right/ ~/.local/share/icons/   # Install to local users
 
 # activate cursor for X11 
-echo "Xcursor.theme: Bibata-Modern-Classic" >> ~.Xresources
+echo "Xcursor.theme: Bibata-Modern-Classic" >> ~/.Xresources
 
 
 rm -rf ./Bibata-Modern-*.tar.xz
