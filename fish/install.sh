@@ -9,6 +9,6 @@ sudo xbps-install -Sy fish-shell bat exa fd fzf starship fd zoxide
 mkdir -p ~/.config/fish/functions
 
 # cp prompt function to config dir
-cp ./fish_prompt.fish ~/.config/fish/functions/
+cp ./fish_prompt.fish ~/.config/fish/functions/.
 cp ./config.fish ~/.config/fish/.
 cp ./fish_plugins ~/.config/fish/.

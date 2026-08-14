@@ -14,7 +14,7 @@ source ~/.bashrc
 
 # install walbox theme for openbox
 git clone https://github.com/edisile/walbox.git
-# copy install because fault in script
+# copy install.sh because fault in script
 cp install.sh walbox/.
 cd walbox
 ./install.sh

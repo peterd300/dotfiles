@@ -156,7 +156,7 @@ wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
 
 unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
 sleep 1
-sudo mv /tmp/jetbrains-mono/fonts/ttf/* ~/.local/share/fonts/JetbrainsMono/.
+mv /tmp/jetbrains-mono/fonts/ttf/* ~/.local/share/fonts/JetbrainsMono/.
 rm -f ~/dotfiles/JetBrainsMono-2.304.zip
 rm -f /tmp/jetbrains-mono
 
