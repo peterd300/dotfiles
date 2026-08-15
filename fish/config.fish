@@ -4,7 +4,16 @@
 
 
 # Make it easy to switch to commonly-used directories
-zoxide init fish | source
+# zoxide init fish | source
+starship init fish | source
+fzf --fish | source
+zoxide init --cmd cd fish | source
+
+
+# env vars
+set -x VISUAL "geany --wait"
+set -x EDITOR "nano --wait"
+
 
 
 # Helpful expansions
@@ -23,4 +32,4 @@ if not functions -q fisher
     fish -c fisher
 end
 
-starship init fish | source
+

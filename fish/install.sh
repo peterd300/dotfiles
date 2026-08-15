@@ -10,5 +10,6 @@ mkdir -p ~/.config/fish/functions
 
 # cp prompt function to config dir
 cp ./fish_prompt.fish ~/.config/fish/functions/.
+cp ./ssh.fish ~/.config/fish/functions/.
 cp ./config.fish ~/.config/fish/.
 cp ./fish_plugins ~/.config/fish/.
