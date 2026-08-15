@@ -63,8 +63,9 @@ echo "exec openbox-session" >> ~/.xinitrc
 echo "# exec twm" >> ~/.xinitrc
 
 ## install openbox utils
-sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils nitrogen xfce4-appfinder 
 mkdir -p ~/.config/polybar
+sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils nitrogen xfce4-appfinder 
+
 
 ## install dbus
 sudo xbps-install -Sy dbus
@@ -72,11 +73,14 @@ sudo ln -s /etc/sv/dbus /var/service/
 sudo sv up dbus
 
 
-## install elogind
-sudo xbps-install -Sy elogind dbus-elogind polkit polkit-elogind 
+## install some services
+
+sudo xbps-install -Sy elogind dbus-elogind polkit polkit-elogind turnstile
 sleep 1
 sudo ln -sf /etc/sv/elogind /var/service/
 sudo ln -sf /etc/sv/polkitd /var/service/
+sudo ln -sf /etc/sv/turnstiled/ /var/service/
+sudo sv up turnstiled
 sudo sv up dbus
 sudo sv up elogind
 
@@ -85,19 +89,18 @@ sudo sv up elogind
 # sudo ln -sf /etc/sv/lightdm /var/service/
 
 
-## install x11 utils (icon theme switch werkt nog niet)
-sudo xbps-install -Sy adwaita-plus turnstile font-awesome 
+## install x11 utils 
+sudo xbps-install -Sy adwaita-plus  font-awesome 
 # temporary disabled very big and slow download
 # sudo xbps-install -Sy nerd-fonts
 
-sudo ln -sf /etc/sv/turnstiled/ /var/service/
-sudo sv up turnstiled
+
 
 ## install favorite X11 programs
 sudo xbps-install -Sy alacritty falkon kitty flameshot gmrun xbindkeys xdotool xev
 mkdir -p ~/screenshots
 
-#install filemanager + jpg viewer
+#install Thunar filemanager + jpg viewer
 sudo xbps-install -Sy Thunar thunar-archive-plugin thunar-media-tags-plugin tumbler lximage-qt gvfs
 
 #install X11 icon themes
@@ -107,9 +110,9 @@ sudo xbps-install -Sy papirus-icon-theme lxde-icon-theme xcursor-themes
 sudo xbps-install -Sy geany geany-editorconfig-plugin geany-plugins geany-plugins-extra
 
 # picom
+mkdir -p ~/.config/picom
 sudo xbps-install -Sy picom
 sleep 2
-mkdir -p ~/.config/picom
 cp /usr/share/examples/picom/picom.sample.conf ~/.config/picom/picom.conf
 
 ## install sound support
@@ -151,9 +154,7 @@ sudo ln -sf /etc/machine-id /var/lib/dbus/machine-id
 echo install JetbrainsMono fonts
 # sudo mkdir -p /usr/local/share/fonts/JetbrainsMono/
 mkdir -p ~/.local/share/fonts/JetbrainsMono/
-
 wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
-
 unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
 sleep 1
 mv /tmp/jetbrains-mono/fonts/ttf/* ~/.local/share/fonts/JetbrainsMono/.
@@ -164,17 +165,16 @@ rm -f /tmp/jetbrains-mono
 fc-cache -f -v
 
 sleep 5
-rm -rf /tmp/jetbrains-mono
-rm -f ~/JetBrainsMono-2.304.zip
+
 
 # installation of zsh
-# big this for Dreams of Automony
+# big thanks this for Dreams of Automony
 # https://github.com/dreamsofautonomy/zensh/blob/main/.zshrc
-sudo xbps-install -Sy zsh fzf zoxide
+# sudo xbps-install -Sy zsh fzf zoxide
 
 
 
 
 echo
-echo "end of the installation script, "cp -R .* .."  copy the .config files to homedir"
+echo "end of the installation script, "cp -R ~/dotfiles/dot_home/.* ~/."  copy the .config files to homedir"
 echo
