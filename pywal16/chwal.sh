@@ -1,5 +1,8 @@
 #/usr/bin/env bash
-wal -i $1 -n && feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
+wal -i $1 -n 
+
+# feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
+feh --bg-scale $1
 openbox --reconfigure
 
 
