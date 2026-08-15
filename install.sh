@@ -36,7 +36,7 @@ fi
 # install X11 in Voidlinux guest
 
 # first install some usefull programs
-sudo xbps-install -Sy htop btop make git wget xz unzip nano cmake curl gcc net-tools fastfetch mlocate
+sudo xbps-install -Sy delta htop btop make git wget xz unzip nano cmake curl gcc net-tools fastfetch mlocate
 sleep 10
 
 
