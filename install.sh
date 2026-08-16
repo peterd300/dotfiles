@@ -37,7 +37,7 @@ fi
 
 # first install some usefull programs
 sudo xbps-install -Sy delta htop btop make git wget xz unzip nano cmake curl gcc net-tools fastfetch mlocate
-sleep 10
+sleep 5
 
 
 
@@ -64,7 +64,7 @@ echo "# exec twm" >> ~/.xinitrc
 
 ## install openbox utils
 mkdir -p ~/.config/polybar
-sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils nitrogen xfce4-appfinder 
+sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils xfce4-appfinder 
 
 
 ## install dbus
@@ -90,14 +90,15 @@ sudo sv up elogind
 
 
 ## install x11 utils 
-sudo xbps-install -Sy adwaita-plus  font-awesome 
+sudo xbps-install -Sy adwaita-plus  
+# font-awesome 
 # temporary disabled very big and slow download
 # sudo xbps-install -Sy nerd-fonts
 
 
 
 ## install favorite X11 programs
-sudo xbps-install -Sy alacritty falkon kitty flameshot gmrun xbindkeys xdotool xev
+sudo xbps-install -Sy falkon kitty flameshot gmrun xbindkeys xdotool xev
 mkdir -p ~/screenshots
 
 #install Thunar filemanager + jpg viewer
@@ -121,11 +122,6 @@ sudo xbps-install -Sy pipewire alsa-plugins-pulseaudio wireplumber pavucontrol p
 ## give local user access to audio and video device
 sudo usermod -aG audio,video,input  $(whoami)
 
-# create tmp dir for pipewire, wthout pipwire  don't start
-#.bashrc
-# insert 
-# mkdir /tmp/$(id -u)
-# export XDG_RUNTIME_DIR=/tmp/$(id -u)
 
 # create again openbox menu
 obmenu-generator -p -i
@@ -150,7 +146,9 @@ sudo dbus-uuidgen --ensure=/etc/machine-id
 sudo ln -sf /etc/machine-id /var/lib/dbus/machine-id
 
 
-# install Jetbrains Mono and Nerd fonts, fonts used in kitty
+# install Jetbrains Mono and some other fonts,  used in kitty
+sudo xbps-install -Sy font-firacode font-iosevka
+
 echo install JetbrainsMono fonts
 # sudo mkdir -p /usr/local/share/fonts/JetbrainsMono/
 mkdir -p ~/.local/share/fonts/JetbrainsMono/
@@ -160,6 +158,7 @@ sleep 1
 mv /tmp/jetbrains-mono/fonts/ttf/* ~/.local/share/fonts/JetbrainsMono/.
 rm -f ~/dotfiles/JetBrainsMono-2.304.zip
 rm -f /tmp/jetbrains-mono
+
 
 # re-generate font-cache
 fc-cache -f -v
@@ -176,5 +175,5 @@ sleep 5
 
 
 echo
-echo "end of the installation script, "cp -R ~/dotfiles/dot_home/.* ~/."  copy the .config files to homedir"
+echo " end of the installation script, "cp -R ~/dotfiles/dot_home/.* ~/."  copy the .config files to homedir" "
 echo

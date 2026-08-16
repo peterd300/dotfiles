@@ -3,7 +3,7 @@
 
 sudo xbps-install -Suy
 
-sudo xbps-install -Sy fish-shell bat exa fd fzf starship fd zoxide
+sudo xbps-install -Sy fish-shell bat eza fd fzf starship fd zoxide
 
 
 mkdir -p ~/.config/fish/functions

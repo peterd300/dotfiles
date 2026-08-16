@@ -9,12 +9,15 @@ With CRTL-ALT F2-F5, normal terminal
 dot files for 
 
 - openbox 	- windows manager
-- kitty 		- terminal
+- kitty 	- terminal
 - polybar 	- X11 Statusbar
-- picom 		- X11 compositor
+- picom 	- X11 compositor
 - htop 
-- dunst 		- X11 notification tool
+- dunst 	- X11 notification tool
 - zsh 
+- fish		- shell
+- wal16		- wallpaper changer and palette generator
+- imv 		terminal image viewer
 
 Pre-requierments for the install script
 
@@ -48,20 +51,42 @@ chmod +x ./install.sh
 ./install.sh
 ```
 
-## install pywal16
+## install pywal16, to change wallpaper and color scheme
+#  open terminal
+```bash
+cd  ~/.wallpaper
+imv *
+
+# with arrow keys cycle through  images, and press b to change  the background 
+```
+
 
 ```bash
 cd ~/dotfiles/pywal16
 ./install_pywal16.sh
 ```
 
+# install bibita icon theme
+```bash
+./bibita-cursor.sh
+```
+
+# install fish shell
+```bash
+cd ./fish
+./install.sh
+```
+
+
+
+
 
 During installation some basic and default config files are copied.
 
 After reboot, copy all from dotfiles directory to your homedirectoy with override exsiting files.
 ```bash
-cd dotfiles
-cp -R .* ..
+cd dotfiles/dot-home
+cp -Rv .* ..
 ```
 logout and login again, to start Openbox Windows Manager. (Only on TTY1 starts X11), other TTYs starts bash shell
 
