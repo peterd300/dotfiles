@@ -3,7 +3,20 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# include timestamps in the output of the history command
+HISTTIMEFORMAT="%d/%m/%y %T "
 
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+export HISTFILESIZE=50000
+export HISTSIZE=10000
+export HISTCONTROL=$HISTCONTROL:ignoreboth
+HISTFILE—/home/$(whoami)/.bash_history
+
+
+# aliasses
 
 alias ..='cd ..' 
 alias ...='cd ../..' 
@@ -80,3 +93,4 @@ fi
 # PS1 variable:
 export PS1="\[\e]0;\u@\h: \w\a\]\u@\h:\w$ \$(my_git)"
 
+eval "$(starship init bash)"
