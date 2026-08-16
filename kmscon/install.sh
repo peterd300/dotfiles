@@ -6,12 +6,13 @@
 #remove agetty on tty2
 sudo sv down agetty-tty2
 sudo rm /var/service/agetty-tty2
+sleep 2
 
-
-sudo xbps-install -S kmscon
+sudo xbps-install -S kmscon pango
 sudo xbps-install -S seatd
 sudo ln -s /etc/sv/seatd /var/service/
 sudo sv start seatd
+
 
 
 sudo mkdir -p /etc/sv/kmsconvt-tty2
@@ -30,8 +31,11 @@ sudo tee /etc/kmscon/kmscon.conf << 'EOF'
 # /etc/kmscon/kmscon.conf
 
 # Font settings
+
+font-engine=pango
+# font-name= JetBrains Mono
 font-name=DejaVu Sans Mono
-font-size=14
+font-size=16
 
 # Terminal palette (options: default, linux, solarized, solarized-black, solarized-white)
 palette=linux
