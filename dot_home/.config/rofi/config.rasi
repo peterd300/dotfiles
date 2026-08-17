@@ -1,7 +1,10 @@
-  * {
-        bg: #161616;
+ @import "~/.cache/wal/colors-rofi-dark"
+ 
+ /*
         background-color: @bg;
     }
+
+*/
 
     configuration {
 	    show-icons: true;
@@ -122,4 +125,6 @@
 
 
 
-@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+
+@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"

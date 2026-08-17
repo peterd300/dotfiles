@@ -69,6 +69,8 @@ our $SCHEMA = [
 
       # Configuration files
       {item => ["$editor ~/.config/kitty/kitty.conf",              'kitty.conf',    'text-x-generic']},
+      {item => ["imv ~/.wallpaper/",            'Change Wallpaper (press b)',  'system-run']},
+
 #      {item => ["$editor ~/.config/tint2/tint2rc", 'Tint2 Panel', 'text-x-generic']},
 
       # obmenu-generator category
