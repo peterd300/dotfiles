@@ -94,6 +94,7 @@ logout and login again, to start Openbox Windows Manager. (Only on TTY1 starts X
 Sources used:
 
 - Just a linux guy:  openbox configuration files & .bashrc
+https://codeberg.org/justaguylinux/openbox-setup
 - Big thanks for Radley Leweis for his zsh config files (https://github.com/radleylewis/zsh ).
 - Dream of Autonomy for this minimalistic .zshrc (dreamsofautonomy/zensh/blob/main/.zshrc)
 - pywal16 for generating color pallet 

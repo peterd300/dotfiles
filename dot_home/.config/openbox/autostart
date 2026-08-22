@@ -8,7 +8,10 @@ nitrogen --restore
 
 
 ## Polybar or tint
-polybar -c ~/.config/polybar/config.ini &
+# polybar -c ~/.config/polybar/config.ini &
+~/.config/polybar/polybar-ob & 
+
+
 
 # First-login welcome (shown once, dismissable)
 if [ ! -f "$HOME/.cache/openbox/welcomed" ]; then
