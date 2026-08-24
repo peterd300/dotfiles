@@ -4,7 +4,7 @@ lxpolkit &
 # dunst -config ~/.config/dunst/dunstrc &
 dunst -config ~/.cache/wal/dunstrc &
 
-# picom --config ~/.config/picom/picom.conf &
+picom --config ~/.config/picom/picom.conf &
 # feh --bg-fill ~/.config/openbox/wallpaper/blue-mountains.jpg &
 
 # Try to restore the last pywal color scheme and wallpaper
