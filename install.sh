@@ -90,19 +90,16 @@ sudo sv up elogind
 
 
 ## install x11 utils 
-sudo xbps-install -Sy adwaita-plus  
-# font-awesome 
-# temporary disabled very big and slow download
-# sudo xbps-install -Sy nerd-fonts
+sudo xbps-install -Sy adwaita-plus   
 
 
 
-## install favorite X11 programs
+# install favorite X11 programs
 sudo xbps-install -Sy falkon kitty flameshot gmrun xbindkeys xdotool xev
 mkdir -p ~/screenshots
 
 #install Thunar filemanager + jpg viewer
-sudo xbps-install -Sy Thunar thunar-archive-plugin thunar-media-tags-plugin tumbler lximage-qt gvfs
+sudo xbps-install -Sy Thunar thunar-archive-plugin thunar-media-tags-plugin tumbler lximage-qt gvfs xarchiver
 
 #install X11 icon themes
 sudo xbps-install -Sy papirus-icon-theme lxde-icon-theme xcursor-themes
@@ -147,7 +144,7 @@ sudo ln -sf /etc/machine-id /var/lib/dbus/machine-id
 
 
 # install Jetbrains Mono and some other fonts,  used in kitty
-sudo xbps-install -Sy font-firacode font-iosevka
+sudo xbps-install -Sy font-firacode font-iosevka font-awesome nerd-fonts-ttf
 
 echo install JetbrainsMono fonts
 # sudo mkdir -p /usr/local/share/fonts/JetbrainsMono/
@@ -165,6 +162,24 @@ fc-cache -f -v
 
 sleep 5
 
+# install fish shel
+./fish/install.sh
+sleep 1
+
+#openbox bibita cursor
+./bibita-cursor.sh
+sleep 1
+
+# copy dot files to homedir
+cp -Rv ~/dotfiles/dot_home/.* ~/.
+sleep 1
+
+cd ~/dotfiles
+cd pywal16
+./install_pyw16.sh
+sleep 3
+
+cd ..
 
 # installation of zsh
 # big thanks this for Dreams of Automony

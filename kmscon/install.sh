@@ -8,8 +8,8 @@ sudo sv down agetty-tty2
 sudo rm /var/service/agetty-tty2
 sleep 2
 
-sudo xbps-install -S kmscon pango
-sudo xbps-install -S seatd
+sudo xbps-install -Sy kmscon pango
+sudo xbps-install -Sy seatd
 sudo ln -s /etc/sv/seatd /var/service/
 sudo sv start seatd
 

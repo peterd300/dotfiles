@@ -13,7 +13,7 @@ shopt -s histappend
 export HISTFILESIZE=50000
 export HISTSIZE=10000
 export HISTCONTROL=$HISTCONTROL:ignoreboth
-HISTFILE—/home/$(whoami)/.bash_history
+export HISTFILE=/home/$(whoami)/.bash_history
 
 
 # aliasses
