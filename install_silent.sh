@@ -43,13 +43,16 @@ fi
 
 echo "[3/15] Installing core CLI utilities..."
 (
-    sudo xbps-install -Sy delta htop btop make git wget xz unzip nano cmake curl gcc net-tools fastfetch mlocate
+    sudo xbps-install -Sy delta htop btop make git wget xz zip unzip nano cmake curl gcc net-tools fastfetch mlocate
 ) >> "$LOG_FILE" 2>&1
 sleep 2
 
-echo "[4.1/15] Installing X11 ..."
+echo "[4.1/15] Installing Xorg server ..."
+(
 sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm xinit xsel xclip xcolor
 ) >> "$LOG_FILE" 2>&1
+
+
 
 echo "[4.2/15] Installing Openbox window manager..."
 (
