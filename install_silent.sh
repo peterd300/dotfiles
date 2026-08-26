@@ -141,12 +141,12 @@ sleep 1 && picom &
 EOF
 ) >> "$LOG_FILE" 2>&1
 
-echo "[12/15] Fetching and installing system fonts..."
+echo "[12.1/15] Fetching and installing Iosevka and Fira fonts..."
 (
-    sudo xbps-install -Sy font-firacode font-iosevka font-awesome nerd-fonts-ttf
+    sudo xbps-install -Sy font-firacode font-iosevka font-awesome
 ) >> "$LOG_FILE" 2>&1
 
-echo "[12/15] Installing Jetbrain System Nerd fonts... be patienced !!"
+echo "[12.2/15] Installing Nerd fonts... be patienced !!"
 (
     sudo xbps-install -Sy nerd-fonts-ttf
 ) >> "$LOG_FILE" 2>&1
