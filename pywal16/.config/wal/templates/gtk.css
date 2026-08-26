@@ -1,0 +1,23 @@
+@define-color theme_bg_color {background};
+@define-color theme_fg_color {foreground};
+@define-color theme_base_color {color0};
+@define-color theme_text_color {foreground};
+@define-color theme_selected_bg_color {color4};
+@define-color theme_selected_fg_color {background};
+@define-color selected_bg_color {color4};
+@define-color selected_fg_color {background};
+
+.thunar .view {
+    background-color: {background};
+    color: {foreground};
+}
+
+.thunar .view:selected {
+    background-color: {color4};
+    color: {background};
+}
+
+.thunar .sidebar {
+    background-color: {color0};
+    color: {foreground};
+}
