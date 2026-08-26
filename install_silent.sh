@@ -47,7 +47,11 @@ echo "[3/15] Installing core CLI utilities..."
 ) >> "$LOG_FILE" 2>&1
 sleep 2
 
-echo "[4/15] Installing Openbox window manager..."
+echo "[4.1/15] Installing X11 ..."
+sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm xinit xsel xclip xcolor
+) >> "$LOG_FILE" 2>&1
+
+echo "[4.2/15] Installing Openbox window manager..."
 (
     sudo xbps-install -Sy openbox obconf obmenu-generator obconf-qt lxappearance lxappearance-obconf nwg-look
     mkdir -p ~/.config/openbox
@@ -86,14 +90,28 @@ echo "[7/15] Installing and initializing D-Bus & system daemons..."
     sudo ln -sf /etc/machine-id /var/lib/dbus/machine-id
 ) >> "$LOG_FILE" 2>&1
 
-echo "[8/15] Installing user applications, file manager, and icons..."
+echo "[8.1/15] Installing X11 applications..."
 (
     sudo xbps-install -Sy adwaita-plus falkon kitty flameshot gmrun xbindkeys xdotool xev
     mkdir -p ~/screenshots
+) >> "$LOG_FILE" 2>&1
+
+echo "[8.2/15] Installing Thunar, file manager..."
+(
     sudo xbps-install -Sy Thunar thunar-archive-plugin thunar-media-tags-plugin tumbler lximage-qt gvfs xarchiver
+ ) >> "$LOG_FILE" 2>&1
+
+echo "[8.3/15] Installing icons..."
+( 
     sudo xbps-install -Sy papirus-icon-theme lxde-icon-theme xcursor-themes
+ ) >> "$LOG_FILE" 2>&1
+
+echo "[8.4/15] Installing Geany, text editor..."
+( 
     sudo xbps-install -Sy geany geany-editorconfig-plugin geany-plugins geany-plugins-extra
 ) >> "$LOG_FILE" 2>&1
+
+
 
 echo "[9/15] Setting up Picom compositor..."
 (
@@ -126,6 +144,15 @@ EOF
 echo "[12/15] Fetching and installing system fonts..."
 (
     sudo xbps-install -Sy font-firacode font-iosevka font-awesome nerd-fonts-ttf
+) >> "$LOG_FILE" 2>&1
+
+echo "[12/15] Installing Jetbrain System Nerd fonts... be patienced !!"
+(
+    sudo xbps-install -Sy nerd-fonts-ttf
+) >> "$LOG_FILE" 2>&1
+    
+ echo "[12.3/15] Installing Jetbrain System fonts..."
+(   
     mkdir -p ~/.local/share/fonts/JetbrainsMono/
     wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
     unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
