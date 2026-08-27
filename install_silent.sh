@@ -163,14 +163,17 @@ echo "[12.2/15] Installing Nerd fonts... be patienced !!" | tee >> "$LOG_FILE" 2
     unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
     mv /tmp/jetbrains-mono/fonts/ttf/* ~/.local/share/fonts/JetbrainsMono/.
     rm -f ~/dotfiles/JetBrainsMono-2.304.zip
-    rm -f /tmp/jetbrains-mono
+    rm -f /tmp/jetbrains-mono/
     fc-cache -f -v
 ) >> "$LOG_FILE" 2>&1
 sleep 2
 
-echo "[13/15] Customizing interactive shells (Fish & Zsh components)..." | tee >> "$LOG_FILE" 2>&1
+echo "[13/15] Customizing interactive shells (Fish & other components)..." | tee >> "$LOG_FILE" 2>&1
 (
+     # installing Fish shell 
     ./fish/install.sh
+    
+    # installing Bibita cursor 
     ./bibita-cursor.sh
 ) >> "$LOG_FILE" 2>&1
 
