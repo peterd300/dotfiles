@@ -37,7 +37,7 @@ if [ "$VIRT_TYPE" = "vmware" ]; then
         if [ -d "/etc/xdg/autostart" ]; then
             sudo cp /etc/xdg/autostart/vmware-user.desktop /etc/xdg/autostart/ 2>/dev/null
         fi
-    ) >> | tee -a "$LOG_FILE" 2>&1
+    ) | tee -a "$LOG_FILE" 2>&1
 else
     echo "[2/15] Virtual environment is: '${VIRT_TYPE:-bare-metal}'. Skipping VMware Tools." 
 fi
@@ -48,14 +48,14 @@ sleep 5
 	echo "[3/15] Installing core CLI utilities..."
 	sudo xbps-install -Sy delta htop btop make git wget xz zip unzip nano cmake curl gcc net-tools fastfetch mlocate
 	
-) >>| tee -a "$LOG_FILE" 2>&1
+) | tee -a "$LOG_FILE" 2>&1
 sleep 2
 
 (
 	echo "[4.1/15] Installing Xorg server ..." 
 
 	sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm xinit xsel xclip xcolor
-) >>| tee -a "$LOG_FILE" 2>&1
+) | tee -a "$LOG_FILE" 2>&1
 
 
 
@@ -69,7 +69,7 @@ sleep 2
     cp /etc/xdg/openbox/rc.xml ~/.config/openbox/
     cp /etc/xdg/openbox/autostart ~/.config/openbox/
     cp /etc/xdg/openbox/menu.xml ~/.config/openbox/
-) >>| tee -a  "$LOG_FILE" 2>&1
+) | tee -a  "$LOG_FILE" 2>&1
 sleep 2
 
 (
@@ -79,7 +79,7 @@ sleep 2
     echo "exec xterm & " >> ~/.xinitrc
     echo "exec openbox-session" >> ~/.xinitrc
     echo "# exec twm" >> ~/.xinitrc
-) >>| tee -a  "$LOG_FILE" 2>&1
+) | tee -a  "$LOG_FILE" 2>&1
 
 
 (
@@ -87,7 +87,7 @@ sleep 2
 		
     mkdir -p ~/.config/polybar
     sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils xfce4-appfinder 
-) >>| tee -a  "$LOG_FILE" 2>&1
+) | tee -a  "$LOG_FILE" 2>&1
 
  
 (	echo "[7/15] Installing and initializing D-Bus & system daemons..."
@@ -102,7 +102,7 @@ sleep 2
     sudo sv up elogind
     sudo dbus-uuidgen --ensure=/etc/machine-id
     sudo ln -sf /etc/machine-id /var/lib/dbus/machine-id
-) >>| tee -a "$LOG_FILE" 2>&1
+) | tee -a "$LOG_FILE" 2>&1
 
 
 (	echo "[8.1/15] Installing X11 applications..." 
@@ -114,17 +114,17 @@ sleep 2
 
 (	echo "[8.2/15] Installing Thunar, file manager..." 
     sudo xbps-install -Sy Thunar thunar-archive-plugin thunar-media-tags-plugin tumbler lximage-qt gvfs xarchiver
- ) >>| tee -a "$LOG_FILE" 2>&1
+ ) | tee -a "$LOG_FILE" 2>&1
 
 (	echo "[8.3/15] Installing icons..." 
  
     sudo xbps-install -Sy papirus-icon-theme lxde-icon-theme xcursor-themes
- ) >>| tee -a "$LOG_FILE" 2>&1
+ ) | tee -a "$LOG_FILE" 2>&1
 
 (	echo "[8.4/15] Installing Geany, text editor..." | 
  
     sudo xbps-install -Sy geany geany-editorconfig-plugin geany-plugins geany-plugins-extra
-) >>| tee -a "$LOG_FILE" 2>&1
+) | tee -a "$LOG_FILE" 2>&1
 
 
 
@@ -133,14 +133,14 @@ sleep 2
     mkdir -p ~/.config/picom
     sudo xbps-install -Sy picom
     cp /usr/share/examples/picom/picom.sample.conf ~/.config/picom/picom.conf
-)>>| tee -a "$LOG_FILE" 2>&1
+)| tee -a "$LOG_FILE" 2>&1
 sleep 2
 
 (	echo "[10/15] Configuring system audio permissions..." 
 
     sudo xbps-install -Sy pipewire alsa-plugins-pulseaudio wireplumber pavucontrol pamixer
     sudo usermod -aG audio,video,input $(whoami)
-) >>>| tee -a "$LOG_FILE" 2>&1
+) | tee -a "$LOG_FILE" 2>&1
 
 ( 	echo "[11/15] Generating dynamic Openbox menus and autostart profiles..." 
 
@@ -154,17 +154,17 @@ sleep 1
 sleep 1 && polybar &
 sleep 1 && picom &
 EOF
-) >>| tee -a "$LOG_FILE" 2>&1
+) | tee -a "$LOG_FILE" 2>&1
 
 ( 	echo "[12.1/15] Fetching and installing Iosevka and Fira fonts..." 
 
     sudo xbps-install -Sy font-firacode font-iosevka font-awesome
-) >>| tee -a "$LOG_FILE" 2>&1
+) | tee -a "$LOG_FILE" 2>&1
 
 ( 	echo "[12.2/15] Installing Nerd fonts... be patienced !!" 
 
     sudo xbps-install -Sy nerd-fonts-ttf
-) >>| tee -a "$LOG_FILE" 2>&1
+) | tee -a "$LOG_FILE" 2>&1
     
     
 ( 	echo "[12.3/15] Installing Jetbrain System fonts..." 
@@ -176,7 +176,7 @@ EOF
     rm -f ~/dotfiles/JetBrainsMono-2.304.zip
     rm -f /tmp/jetbrains-mono/
     fc-cache -f -v
-) >>| tee -a "$LOG_FILE" 2>&1
+) | tee -a "$LOG_FILE" 2>&1
 sleep 2
 
 ( 	echo "[13/15] Customizing interactive shells (Fish & other components)..." 
@@ -186,12 +186,12 @@ sleep 2
     
     # installing Bibita cursor 
     ./bibita-cursor.sh
-) >>| tee -a "$LOG_FILE" 2>&1
+) | tee -a "$LOG_FILE" 2>&1
 
 ( 	echo "[14/15] Deploying customized dotfiles and configuration sets..." 
 
     cp -Rv ~/dotfiles/dot_home/.* ~/.
-) >>| tee -a "$LOG_FILE" 2>&1
+) | tee -a "$LOG_FILE" 2>&1
 sleep 1
 
 
@@ -199,7 +199,7 @@ sleep 1
 
     cd ~/dotfiles/pywal16
     ./install_pyw16.sh
-) >>| tee -a "$LOG_FILE" 2>&1
+) | tee -a "$LOG_FILE" 2>&1
 sleep 2
 
 echo "========================================="
