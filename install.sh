@@ -97,7 +97,7 @@ sudo xbps-install -Sy adwaita-plus
 
 
 # install favorite X11 programs
-sudo xbps-install -Sy falkon kitty flameshot gmrun xbindkeys xdotool xev
+sudo xbps-install -Sy falkon kitty flameshot gmrun xbindkeys xdotool xev gsimplecal-gtk3
 mkdir -p ~/screenshots
 
 #install Thunar filemanager + jpg viewer
