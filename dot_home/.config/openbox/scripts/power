@@ -18,8 +18,8 @@ chosen=$(printf '%s\n' "[Cancel]" "Logout" "Shutdown" "Reboot" | \
 
 case "$chosen" in
     "Logout") openbox --exit ;;
-    "Shutdown") systemctl poweroff ;;
-    "Reboot") systemctl reboot ;;
+    "Shutdown") loginctl poweroff now ;;
+    "Reboot") loginctl reboot ;;
     *) exit 0 ;; # Exit on cancel or invalid input
 esac
 
