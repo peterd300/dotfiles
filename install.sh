@@ -29,8 +29,7 @@ sleep 2
 VIRT_TYPE=$(sudo virt-what)
 
 if [ "$VIRT_TYPE" = "vmware" ]; then
-    
-    
+
 		echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 		echo "[2/15] VMware detected! Installing VMware Tools..." | tee -a "$LOG_FILE"
 		echo "========================================================================================================" >> "$LOG_FILE" 2>&1
@@ -55,14 +54,11 @@ fi
 sleep 5
 
 
-
-
-	echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-	echo "[3/15] Installing core CLI utilities..." | tee -a "$LOG_FILE"
-	echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-(	
+echo "========================================================================================================" >> "$LOG_FILE" 2>&1
+echo "[3/15] Installing core CLI utilities..." | tee -a "$LOG_FILE"
+echo "========================================================================================================" >> "$LOG_FILE" 2>&1
+(
 	sudo xbps-install -Sy delta htop btop make git wget xz zip unzip nano cmake curl gcc net-tools fastfetch mlocate
-	
 ) >> "$LOG_FILE" 2>&1
 sleep 2
 
@@ -78,7 +74,7 @@ sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm x
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 echo "[4.2/15] Installing Openbox window manager..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-(	
+(
     sudo xbps-install -Sy openbox obconf obmenu-generator obconf-qt lxappearance lxappearance-obconf nwg-look
     mkdir -p ~/.config/openbox
     mkdir -p ~/.local
@@ -93,7 +89,7 @@ echo "==========================================================================
 echo "[5/15] Creating X11 environment configuration (.xinitrc)..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1 
 
-(	
+(
     echo "xrandr --output Virtual-1 --mode 1920x1080 " >> ~/.xinitrc
     echo "exec xterm & " >> ~/.xinitrc
     echo "exec openbox-session" >> ~/.xinitrc
@@ -105,7 +101,7 @@ echo "==========================================================================
 echo "[6/15] Installing desktop environment utilities..." | tee -a "$LOG_FILE" 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
-(		
+(
     mkdir -p ~/.config/polybar
     sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils xfce4-appfinder 
 ) >> "$LOG_FILE" 2>&1
@@ -143,8 +139,8 @@ echo "==========================================================================
 (
     sudo xbps-install -Sy Thunar thunar-archive-plugin thunar-media-tags-plugin tumbler lximage-qt gvfs xarchiver
  ) >> "$LOG_FILE" 2>&1
- 
- 
+
+
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 echo "[8.3/15] Installing icons..." | tee -a "$LOG_FILE" 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
@@ -157,7 +153,7 @@ echo "==========================================================================
 echo "[8.4/15] Installing Geany, text editor..." | tee -a "$LOG_FILE" | 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
-( 
+(
     sudo xbps-install -Sy geany geany-editorconfig-plugin geany-plugins geany-plugins-extra
 ) >> "$LOG_FILE" 2>&1
 
@@ -193,7 +189,7 @@ sleep 1 && /usr/bin/vmware-user &
 sleep 1 && pipewire &
 sleep 1 && wireplumber &
 sleep 1 && pipewire-pulse &
-sleep 1 
+sleep 1
 sleep 1 && polybar &
 sleep 1 && picom &
 EOF
@@ -215,12 +211,12 @@ echo "==========================================================================
 #(
 #    sudo xbps-install -Sy nerd-fonts-ttf
 #) >> "$LOG_FILE" 2>&1
-    
+
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 echo "[12.3/15] Installing Jetbrain System fonts..." | tee -a "$LOG_FILE" 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
-# (  
+#(
     #~ mkdir -p ~/.local/share/fonts/JetbrainsMono/
     #~ wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
     #~ unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
@@ -230,11 +226,12 @@ echo "==========================================================================
     #~ fc-cache -f 
 # ) >> "$LOG_FILE" 2>&1
 # sleep 2
+
 (
 mkdir -p ./fonts
 cd ./fonts
 wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip
-wget -q  https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
+wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
 wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.zip
 wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip
 wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IosevkaTerm.zip
@@ -248,8 +245,6 @@ unzip ./Iosevka.zip -d ./Iosevka
 unzip ./IosevkaTerm.zip -d ./IosevkaTerm
 unzip ./JetBrainsMono.zip -d ./JetBrainsNerdMono
 unzip ./JetBrainsMono-2.304.zip -d ./JetBrainsMono
-
-
 
 
 mkdir -p ~/.local/share/fonts/{HackNerd,FiraCode,FiraMono,Iosevka,IosevkaTerm,JetBrainsNerdMono,JetBrainsMono}
@@ -278,10 +273,10 @@ echo "[13/15] Customizing interactive shells (Fish & other components)..." | tee
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
-     # installing Fish shell 
+     # installing Fish shell
     ./fish/install.sh
-    
-    # installing Bibita cursor 
+
+    # installing Bibita cursor
     ./bibita-cursor.sh
 ) >> "$LOG_FILE" 2>&1
 
