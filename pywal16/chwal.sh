@@ -1,5 +1,5 @@
 #/usr/bin/env bash
-wal -i $1 -n 
+~/local/bin/wal -i $1 -n 
 
 # feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
 feh --bg-scale $1
