@@ -204,22 +204,23 @@ echo "[12.1/15] Fetching and installing Iosevka and Fira fonts..." | tee -a "$LO
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
-    sudo xbps-install -Sy font-firacode font-iosevka font-awesome
+    sudo xbps-install -Sy font-awesome
+    # sudo xbps-install -Sy font-firacode font-iosevka font-awesome
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 echo "[12.2/15] Installing Nerd fonts... be patienced !!" 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
-(
+#(
 #    sudo xbps-install -Sy nerd-fonts-ttf
-) >> "$LOG_FILE" 2>&1
+#) >> "$LOG_FILE" 2>&1
     
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 echo "[12.3/15] Installing Jetbrain System fonts..." | tee -a "$LOG_FILE" 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
-#~ (  
+# (  
     #~ mkdir -p ~/.local/share/fonts/JetbrainsMono/
     #~ wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
     #~ unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
@@ -227,18 +228,18 @@ echo "==========================================================================
     #~ rm -f ~/dotfiles/JetBrainsMono-2.304.zip
     #~ rm -f /tmp/jetbrains-mono/
     #~ fc-cache -f 
-#~ ) >> "$LOG_FILE" 2>&1
-#~ sleep 2
+# ) >> "$LOG_FILE" 2>&1
+# sleep 2
 (
-mkfonts -p ./fonts
+mkdir -p ./fonts
 cd ./fonts
-wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip
-wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
-wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.zip
-wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip
-wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IosevkaTerm.zip
-wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
-wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
+wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip
+wget -q  https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
+wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.zip
+wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip
+wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IosevkaTerm.zip
+wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+wget -q https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
 
 unzip ./Hack.zip -d ./Hack
 unzip ./FiraCode.zip -d ./FiraCode
@@ -246,7 +247,7 @@ unzip ./FiraMono.zip -d ./FiraMono
 unzip ./Iosevka.zip -d ./Iosevka
 unzip ./IosevkaTerm.zip -d ./IosevkaTerm
 unzip ./JetBrainsMono.zip -d ./JetBrainsNerdMono
-unzip ./JetBrainsMono-2.304.zip -d ./JetbBrainsMono
+unzip ./JetBrainsMono-2.304.zip -d ./JetBrainsMono
 
 
 
@@ -259,7 +260,7 @@ mv ./FiraMono/*.ttf  ~/.local/share/fonts/FiraMono
 mv ./Iosevka/*.ttf  ~/.local/share/fonts/Iosevka
 mv ./IosevkaTerm/*.ttf  ~/.local/share/fonts/IosevkaTerm
 mv ./JetBrainsNerdMono/*.ttf  ~/.local/share/fonts/JetBrainsNerdMono
-mv ./JetRrainsMono/fonts/ttf/*.ttf ~/.local/share/fonts/JetbrainsMono
+mv ./JetBrainsMono/fonts/ttf/*.ttf ~/.local/share/fonts/JetBrainsMono
 
 
 fc-cache -f -v
