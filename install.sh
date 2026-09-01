@@ -16,7 +16,7 @@ echo " Starting Void Linux & Openbox Installer "
 echo "============================================================================="
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[1/15] Syncing repositories & preparing detection tools..." | tee -a "$LOG_FILE" 
+echo "[1/15] Syncing repositories & preparing detection tools..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -33,9 +33,9 @@ if [ "$VIRT_TYPE" = "vmware" ]; then
 		echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 		echo "[2/15] VMware detected! Installing VMware Tools..." | tee -a "$LOG_FILE"
 		echo "========================================================================================================" >> "$LOG_FILE" 2>&1
- 
+
     (
-        sudo xbps-install -Sy open-vm-tools mesa-vaapi mesa-vmwgfx-dri 
+        sudo xbps-install -Sy open-vm-tools mesa-vaapi mesa-vmwgfx-dri
         sudo ln -s /etc/sv/vmware-vmblock-fuse /var/service/
         sudo ln -s /etc/sv/vmtoolsd /var/service/
         sudo sv up vmtoolsd
@@ -46,7 +46,7 @@ if [ "$VIRT_TYPE" = "vmware" ]; then
     ) >> "$LOG_FILE" 2>&1
 else
     echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-    echo "[2/15] Virtual environment is: '${VIRT_TYPE:-bare-metal}'. Skipping VMware Tools." 
+    echo "[2/15] Virtual environment is: '${VIRT_TYPE:-bare-metal}'. Skipping VMware Tools."
     echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 fi
@@ -58,7 +58,7 @@ echo "==========================================================================
 echo "[3/15] Installing core CLI utilities..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 (
-	sudo xbps-install -Sy delta htop btop make git wget xz zip unzip nano cmake curl gcc net-tools fastfetch mlocate
+	sudo xbps-install -Sy delta htop btop make micro git wget xz zip unzip nano cmake curl gcc net-tools ncdu fastfetch mlocate glow
 ) >> "$LOG_FILE" 2>&1
 sleep 2
 
@@ -66,9 +66,7 @@ echo "==========================================================================
 echo "[4.1/15] Installing Xorg server ..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm xinit xsel xclip xcolor >> "$LOG_FILE" 2>&1
-
-
-
+sudo xbps-install -Sy gpick CopyQ zathura zathura-cb zathura-pdf-mup >> "$LOG_FILE" 2>&1
 
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
@@ -87,7 +85,7 @@ sleep 2
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 echo "[5/15] Creating X11 environment configuration (.xinitrc)..." | tee -a "$LOG_FILE"
-echo "========================================================================================================" >> "$LOG_FILE" 2>&1 
+echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
     echo "xrandr --output Virtual-1 --mode 1920x1080 " >> ~/.xinitrc
@@ -98,12 +96,12 @@ echo "==========================================================================
 
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[6/15] Installing desktop environment utilities..." | tee -a "$LOG_FILE" 
+echo "[6/15] Installing desktop environment utilities..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
     mkdir -p ~/.config/polybar
-    sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils xfce4-appfinder 
+    sudo xbps-install -Sy polybar dunst rofi feh xdg-user-dirs xdg-utils xfce4-appfinder
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
@@ -124,7 +122,7 @@ echo "==========================================================================
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[8.1/15] Installing X11 applications..." | tee -a "$LOG_FILE" 
+echo "[8.1/15] Installing X11 applications..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -133,7 +131,7 @@ echo "==========================================================================
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[8.2/15] Installing Thunar, file manager..." | tee -a "$LOG_FILE" 
+echo "[8.2/15] Installing Thunar, file manager..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -142,7 +140,7 @@ echo "==========================================================================
 
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[8.3/15] Installing icons..." | tee -a "$LOG_FILE" 
+echo "[8.3/15] Installing icons..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -150,7 +148,7 @@ echo "==========================================================================
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[8.4/15] Installing Geany, text editor..." | tee -a "$LOG_FILE" | 
+echo "[8.4/15] Installing Geany, text editor..." | tee -a "$LOG_FILE" |
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -160,7 +158,7 @@ echo "==========================================================================
 
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[9/15] Setting up Picom compositor..." | tee -a "$LOG_FILE" 
+echo "[9/15] Setting up Picom compositor..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -171,7 +169,7 @@ echo "==========================================================================
 sleep 2
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[10/15] Configuring system audio permissions..." | tee -a "$LOG_FILE" 
+echo "[10/15] Configuring system audio permissions..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -180,7 +178,7 @@ echo "==========================================================================
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[11/15] Generating dynamic Openbox menus and autostart profiles..." | tee -a "$LOG_FILE" 
+echo "[11/15] Generating dynamic Openbox menus and autostart profiles..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 (
     obmenu-generator -p -i
@@ -196,7 +194,7 @@ EOF
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[12.1/15] Fetching and installing Iosevka and Fira fonts..." | tee -a "$LOG_FILE" 
+echo "[12.1/15] Fetching and installing Iosevka and Fira fonts..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -205,7 +203,7 @@ echo "==========================================================================
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[12.2/15] Installing Nerd fonts... be patienced !!" 
+echo "[12.2/15] Installing Nerd fonts... be patienced !!"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 #(
@@ -213,7 +211,7 @@ echo "==========================================================================
 #) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[12.3/15] Installing Jetbrain System fonts..." | tee -a "$LOG_FILE" 
+echo "[12.3/15] Installing Jetbrain System fonts..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 #(
@@ -223,7 +221,7 @@ echo "==========================================================================
     #~ c
     #~ rm -f ~/dotfiles/JetBrainsMono-2.304.zip
     #~ rm -f /tmp/jetbrains-mono/
-    #~ fc-cache -f 
+    #~ fc-cache -f
 # ) >> "$LOG_FILE" 2>&1
 # sleep 2
 
@@ -269,7 +267,7 @@ sleep 2
 
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[13/15] Customizing interactive shells (Fish & other components)..." | tee -a "$LOG_FILE" 
+echo "[13/15] Customizing interactive shells (Fish & other components)..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -281,7 +279,7 @@ echo "==========================================================================
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[14/15] Deploying customized dotfiles and configuration sets..." | tee -a "$LOG_FILE" 
+echo "[14/15] Deploying customized dotfiles and configuration sets..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -290,7 +288,7 @@ echo "==========================================================================
 sleep 1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[15/15] Compiling and configuring Pywal themes..." | tee -a "$LOG_FILE" 
+echo "[15/15] Compiling and configuring Pywal themes..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
