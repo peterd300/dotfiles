@@ -66,11 +66,15 @@ echo "==========================================================================
 echo "[4.1/15] Installing Xorg server ..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm xinit xsel xclip xcolor >> "$LOG_FILE" 2>&1
+
+echo "========================================================================================================" >> "$LOG_FILE" 2>&1
+echo "[4.2/15] Installing X11 apps  ..." | tee -a "$LOG_FILE"
+echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 sudo xbps-install -Sy gpick CopyQ zathura zathura-cb zathura-pdf-mup >> "$LOG_FILE" 2>&1
 
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[4.2/15] Installing Openbox window manager..." | tee -a "$LOG_FILE"
+echo "[4.3/15] Installing Openbox window manager..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 (
     sudo xbps-install -Sy openbox obconf obmenu-generator obconf-qt lxappearance lxappearance-obconf nwg-look
@@ -96,7 +100,7 @@ echo "==========================================================================
 
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[6/15] Installing desktop environment utilities..." | tee -a "$LOG_FILE"
+echo "[6/15] Installing polybar ..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -122,11 +126,11 @@ echo "==========================================================================
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[8.1/15] Installing X11 applications..." | tee -a "$LOG_FILE"
+echo "[8.1/15] Installing some X11 applications..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
-    sudo xbps-install -Sy adwaita-plus falkon kitty flameshot gmrun xbindkeys xdotool xev
+    sudo xbps-install -Sy adwaita-plus falkon kitty flameshot gmrun xbindkeys xdotool xev gpick
     mkdir -p ~/screenshots
 ) >> "$LOG_FILE" 2>&1
 
@@ -140,7 +144,7 @@ echo "==========================================================================
 
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[8.3/15] Installing icons..." | tee -a "$LOG_FILE"
+echo "[8.3/15] Installing icons and themes ..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -154,7 +158,6 @@ echo "==========================================================================
 (
     sudo xbps-install -Sy geany geany-editorconfig-plugin geany-plugins geany-plugins-extra
 ) >> "$LOG_FILE" 2>&1
-
 
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
@@ -194,7 +197,7 @@ EOF
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[12.1/15] Fetching and installing Iosevka and Fira fonts..." | tee -a "$LOG_FILE"
+echo "[12.1/15] Awesome  fonts..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
@@ -202,16 +205,9 @@ echo "==========================================================================
     # sudo xbps-install -Sy font-firacode font-iosevka font-awesome
 ) >> "$LOG_FILE" 2>&1
 
-echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[12.2/15] Installing Nerd fonts... be patienced !!"
-echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-
-#(
-#    sudo xbps-install -Sy nerd-fonts-ttf
-#) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-echo "[12.3/15] Installing Jetbrain System fonts..." | tee -a "$LOG_FILE"
+echo "[12.2/15] Installing Jetbrain (Nerd) System and other fonts..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 #(
@@ -249,7 +245,7 @@ mkdir -p ~/.local/share/fonts/{HackNerd,FiraCode,FiraMono,Iosevka,IosevkaTerm,Je
 
 mv ./Hack/*.ttf  ~/.local/share/fonts/HackNerd
 mv ./FiraCode/*.ttf  ~/.local/share/fonts/FiraCode
-mv ./FiraMono/*.ttf  ~/.local/share/fonts/FiraMono
+mv ./FiraMono/*.?tf  ~/.local/share/fonts/FiraMono
 mv ./Iosevka/*.ttf  ~/.local/share/fonts/Iosevka
 mv ./IosevkaTerm/*.ttf  ~/.local/share/fonts/IosevkaTerm
 mv ./JetBrainsNerdMono/*.ttf  ~/.local/share/fonts/JetBrainsNerdMono
@@ -262,8 +258,6 @@ rm -rf ./fonts/
 
 ) >> "$LOG_FILE" 2>&1
 sleep 2
-
-
 
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
