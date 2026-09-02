@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-
-sudo xbps-install -Sy fish-shell bat eza fd fzf starship fd zoxide
+# Install fish shell and some modern linux terminal tools
+sudo xbps-install -Sy fish-shell bat eza fd ripgrep fzf starship fd zoxide
 
 
 mkdir -p ~/.config/fish/functions
