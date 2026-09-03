@@ -58,7 +58,7 @@ echo "==========================================================================
 echo "[3/15] Installing core CLI utilities..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 (
-	sudo xbps-install -Sy delta htop btop make micro git wget xz zip unzip nano cmake curl gcc net-tools ncdu fastfetch mlocate glow
+	sudo xbps-install -Sy delta htop btop make micro git wget xz zip unzip nano cmake curl gcc net-tools gping ncdu fastfetch mlocate glow
 ) >> "$LOG_FILE" 2>&1
 sleep 2
 

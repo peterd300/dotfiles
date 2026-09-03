@@ -18,10 +18,13 @@ export HISTFILE=/home/$(whoami)/.bash_history
 
 # aliasses
 
-alias ..='cd ..' 
-alias ...='cd ../..' 
-alias ls='ls --color=auto'
-alias ll='ls -al --color=auto'
+alias ..='cd ..'
+alias ...='cd ../..'
+#alias ls='ls --color=auto'
+#alias ll='ls -al --color=auto'
+alias ls='eza --group-directories-first --git'
+alias ll='eza -la --group-directories-first --git'
+alias e='micro'
 alias df='df -h'
 alias du='du -h'
 alias nano='nano -l'
@@ -53,7 +56,7 @@ export VISUAL="$EDITOR"
 #thanks to JustALinuxGuy
 # PS1 Customization
 
-#PS1="\[\e[32m\]\h\[\e[m\]\[\e[36m\]@\[\e[m\]\[\e[34m\]\u\[\e[m\] \W \$ " 
+# PS1="\[\e[32m\]\h\[\e[m\]\[\e[36m\]@\[\e[m\]\[\e[34m\]\u\[\e[m\] \W \$ "
 
 # Colour codes
 RED="\\[\\e[1;31m\\]"
@@ -93,4 +96,8 @@ fi
 # PS1 variable:
 export PS1="\[\e]0;\u@\h: \w\a\]\u@\h:\w$ \$(my_git)"
 
+# init starship promtp
 eval "$(starship init bash)"
+
+# Init zoxide
+eval "$(zoxide init bash)"
