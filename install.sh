@@ -210,16 +210,6 @@ echo "==========================================================================
 echo "[12.2/15] Installing Jetbrain (Nerd) System and other fonts..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
-#(
-    #~ mkdir -p ~/.local/share/fonts/JetbrainsMono/
-    #~ wget https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
-    #~ unzip JetBrainsMono-2.304.zip -d /tmp/jetbrains-mono
-    #~ c
-    #~ rm -f ~/dotfiles/JetBrainsMono-2.304.zip
-    #~ rm -f /tmp/jetbrains-mono/
-    #~ fc-cache -f
-# ) >> "$LOG_FILE" 2>&1
-# sleep 2
 
 (
 mkdir -p ./fonts

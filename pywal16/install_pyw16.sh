@@ -22,7 +22,7 @@ cd ..
 
 
 rm -rf .git
-
+rm -rf walbox
 
 # copy several config files
 cp -Rv ~/dotfiles/pywal16/.config/* ~/.config
