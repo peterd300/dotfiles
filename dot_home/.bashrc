@@ -94,7 +94,7 @@ else
 fi
 }
 # PS1 variable:
-export PS1="\[\e]0;\u@\h: \w\a\]\u@\h:\w$ \$(my_git)"
+# export PS1="\[\e]0;\u@\h: \w\a\]\u@\h:\w$ \$(my_git)"
 
 # init starship promtp
 eval "$(starship init bash)"

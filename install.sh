@@ -149,6 +149,14 @@ echo "==========================================================================
 
 (
     sudo xbps-install -Sy papirus-icon-theme lxde-icon-theme xcursor-themes arc-theme
+    mkdir icons
+    cd icons
+    git clone https://github.com/bikass/kora.git
+    sudo mv kora/kora/ /usr/share/icons/
+    sudo mv kora/pgrey-kora/ /usr/share/icons/
+    cd ..
+    rm -rf icons
+    
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
