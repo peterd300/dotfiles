@@ -17,9 +17,9 @@ dot files for
 - zsh 
 - fish		- shell
 - wal16		- wallpaper changer and palette generator
-- imv 		terminal image viewer
+- imv 		- terminal image viewer
 
-Pre-requierments for the install script
+Pre-requierments for the install script (only tested VMware Work Station)
 
 after installation and first reboot in Void Linux
 login as root
@@ -68,13 +68,12 @@ cd ~/dotfiles/pywal16
 
 # install bibita icon theme
 ```bash
-./bibita-cursor.sh
+./scripts/bibita-cursor.sh
 ```
 
 # install fish shell
 ```bash
-cd ./fish
-./install.sh
+cd ./scripts/install-fish.sh
 ```
 
 

@@ -61,7 +61,7 @@ echo "==========================================================================
 (
 	# install some bash utils
     sudo xbps-install -Sy tree multitail bash-completion fastfetch trash-cli
-	sudo xbps-install -Sy delta htop btop make micro git wget xz zip unzip nano cmake curl gcc net-tools gping ncdu  mlocate glow jq
+	sudo xbps-install -Sy delta htop btop make micro git wget xz zip unzip nano cmake curl gcc net-tools gping ncdu tree mlocate glow jq
 ) >> "$LOG_FILE" 2>&1
 sleep 2
 
