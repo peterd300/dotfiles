@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 # Define the log file and clear it out at startup
-LOG_FILE="install.log"
-> "$LOG_FILE"
+LOG_FILE="$HOME/log/install.log"
+mkdir -p "$HOME/log"
 
+> "$LOG_FILE"
 # Cache sudo credentials upfront so password prompts don't get hidden inside logs
 echo "Please enter your sudo password to begin the installation:"
 sudo -v
@@ -58,7 +59,9 @@ echo "==========================================================================
 echo "[3/15] Installing core CLI utilities..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 (
-	sudo xbps-install -Sy delta htop btop make micro git wget xz zip unzip nano cmake curl gcc net-tools gping ncdu fastfetch mlocate glow
+	# install some bash utils
+    sudo xbps-install -Sy tree multitail bash-completion fastfetch trash-cli
+	sudo xbps-install -Sy delta htop btop make micro git wget xz zip unzip nano cmake curl gcc net-tools gping ncdu  mlocate glow jq
 ) >> "$LOG_FILE" 2>&1
 sleep 2
 
@@ -130,7 +133,7 @@ echo "[8.1/15] Installing some X11 applications..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
-    sudo xbps-install -Sy adwaita-plus falkon kitty flameshot gmrun xbindkeys xdotool xev gpick
+    sudo xbps-install -Sy adwaita-plus firefox-esr kitty flameshot gmrun xbindkeys xdotool xev gpick
     mkdir -p ~/screenshots
 ) >> "$LOG_FILE" 2>&1
 
@@ -149,13 +152,7 @@ echo "==========================================================================
 
 (
     sudo xbps-install -Sy papirus-icon-theme lxde-icon-theme xcursor-themes arc-theme
-    mkdir icons
-    cd icons
-    git clone https://github.com/bikass/kora.git
-    sudo mv kora/kora/ /usr/share/icons/
-    sudo mv kora/pgrey-kora/ /usr/share/icons/
-    cd ..
-    rm -rf icons
+    ./scripts/install-kora.sh
     
 ) >> "$LOG_FILE" 2>&1
 
@@ -220,39 +217,16 @@ echo "==========================================================================
 
 
 (
-mkdir -p ./fonts
-cd ./fonts
-wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip
-wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
-wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.zip
-wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip
-wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IosevkaTerm.zip
-wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
-wget -q https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip
+# comment out fonts, if you don't need or use them
 
-unzip ./Hack.zip -d ./Hack
-unzip ./FiraCode.zip -d ./FiraCode
-unzip ./FiraMono.zip -d ./FiraMono
-unzip ./Iosevka.zip -d ./Iosevka
-unzip ./IosevkaTerm.zip -d ./IosevkaTerm
-unzip ./JetBrainsMono.zip -d ./JetBrainsNerdMono
-unzip ./JetBrainsMono-2.304.zip -d ./JetBrainsMono
+# ./scripts/install-font-firacode.sh
+# ./scripts/install-font-firamono.sh
+# ./scripts/install-font-hacknerd.sh
+./scripts/install-font-iosevka.sh
+./scripts/install-font-iosevkaterm.sh
+# ./scripts/install-font-jetbrainsmono.sh
+./scripts/install-font-jetbrainsnerd-mono.sh
 
-
-mkdir -p ~/.local/share/fonts/{HackNerd,FiraCode,FiraMono,Iosevka,IosevkaTerm,JetBrainsNerdMono,JetBrainsMono}
-
-mv ./Hack/*.ttf  ~/.local/share/fonts/HackNerd
-mv ./FiraCode/*.ttf  ~/.local/share/fonts/FiraCode
-mv ./FiraMono/*.?tf  ~/.local/share/fonts/FiraMono
-mv ./Iosevka/*.ttf  ~/.local/share/fonts/Iosevka
-mv ./IosevkaTerm/*.ttf  ~/.local/share/fonts/IosevkaTerm
-mv ./JetBrainsNerdMono/*.ttf  ~/.local/share/fonts/JetBrainsNerdMono
-mv ./JetBrainsMono/fonts/ttf/*.ttf ~/.local/share/fonts/JetBrainsMono
-
-
-fc-cache -f -v
-cd ..
-rm -rf ./fonts/
 
 ) >> "$LOG_FILE" 2>&1
 sleep 2
@@ -264,10 +238,10 @@ echo "==========================================================================
 
 (
      # installing Fish shell
-    ./fish/install.sh
+    ./scripts/install-fish.sh
 
     # installing Bibita cursor
-    ./bibita-cursor.sh
+    ./scripts/install-bibita-cursor.sh
 ) >> "$LOG_FILE" 2>&1
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
@@ -284,7 +258,7 @@ echo "[15/15] Compiling and configuring Pywal themes..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
 (
-    cd ~/dotfiles/pywal16
+    cd ~/dotfiles/scripts/pywal16
     ./install_pyw16.sh
 ) >> "$LOG_FILE" 2>&1
 sleep 2

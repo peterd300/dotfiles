@@ -1,47 +1,48 @@
 # .bashrc
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# Load our dotfiles.
+for file in ~/.{aliases,functions,exports}; do
+    [ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
 
-# include timestamps in the output of the history command
-HISTTIMEFORMAT="%d/%m/%y %T "
+# Autocorrect typos in path names when using `cd`.
+shopt -s cdspell
+
+# Case-insensitive globbing (used in pathname expansion).
+shopt -s nocaseglob
+
+# Bash attempts to save all lines of a multiple-line command in the same history entry.
+# This allows easy re-editing of multi-line commands.
+shopt -s cmdhist
+
+# Check the window size after each command and, if necessary,
+# update the values of lines and columns.
+shopt -s checkwinsize
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTFILESIZE=50000
-export HISTSIZE=10000
-export HISTCONTROL=$HISTCONTROL:ignoreboth
-export HISTFILE=/home/$(whoami)/.bash_history
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
 
-# aliasses
 
-alias ..='cd ..'
-alias ...='cd ../..'
-#alias ls='ls --color=auto'
-#alias ll='ls -al --color=auto'
-alias ls='eza --group-directories-first --git'
-alias ll='eza -la --group-directories-first --git'
-alias e='micro'
-alias df='df -h'
-alias du='du -h'
-alias nano='nano -l'
-alias ff='fastfetch'
+# Bash completion.
+if ! shopt -oq posix; then
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        source /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        source /etc/bash_completion
+    fi
+fi
 
-# xbps aliases
-alias xi='sudo xbps-install -Sy'
-alias xu='sudo xbps-install -Su'
-alias xq='sudo xbps-query -Rs'
+# dircolors.
+if [ -x "$(command -v dircolors)" ]; then
+    eval "$(dircolors -b ~/.dircolors)"
+fi
 
 
-# Git aliases
-alias gp="git push -u origin main"
-alias gsave="git commit -m 'save'"
-alias gm="git commit"
-alias gs="git status"
-alias gc="git clone"
 
 
 # PS1='[\u@\h \W]\$ '
@@ -49,9 +50,6 @@ alias gc="git clone"
 
 
 
-export PATH="$HOME/scripts:$HOME/.local/bin:$PATH"
-export EDITOR=$(command -v nvim || command -v micro || echo nano)
-export VISUAL="$EDITOR"
 
 #thanks to JustALinuxGuy
 # PS1 Customization
@@ -72,32 +70,13 @@ ENDC="\\[\\e[0m\\]"
 if [[ -n "$SSH_CLIENT" ]]; then ssh_message="-ssh_session"; fi
 PS1="${GREEN}\u ${WHITE}at ${YELLOW}\h${RED}${ssh_message} ${WHITE}in ${BLUE}\w \n${CYAN}\$${ENDC} "
 
-
-
-# Handy git function by https://learn-linux.com/
-
-my_git() {
-GIT_BRANCH=$(git branch --all 2> /dev/null | egrep "^\*" | cut -d ' ' -f 2 )
-if [[ -z "$GIT_BRANCH" ]]; then
-       echo "" #not in a Git repo
-else
-    if [ $(git status | egrep "^Untracked" -c) -ge 1 ]; then
-        #ANSI code: Red
-        echo -e "(\033[0;31m$GIT_BRANCH\033[0m) "
-    elif  [ $(git status | egrep "^Changes" -c) -ge 1 ]; then
-        #ANSI code: Yellow
-        echo -e "(\033[0;33m$GIT_BRANCH\033[0m) "
-    else
-        #ANSI code: Green
-        echo -e "(\033[0;32m$GIT_BRANCH\033[0m) "
-    fi
+# init starship prompt
+if [[ $- == *i* ]] && command -v starship >/dev/null 2>&1; then
+	eval "$(starship init bash)"
 fi
-}
-# PS1 variable:
-# export PS1="\[\e]0;\u@\h: \w\a\]\u@\h:\w$ \$(my_git)"
-
-# init starship promtp
-eval "$(starship init bash)"
 
 # Init zoxide
-eval "$(zoxide init bash)"
+if [[ $- == *i* ]] && command -v zoxide >/dev/null 2>&1; then
+	eval "$(zoxide init bash)"
+fi
+

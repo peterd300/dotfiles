@@ -25,10 +25,10 @@ rm -rf .git
 rm -rf walbox
 
 # copy several config files
-cp -Rv ~/dotfiles/pywal16/.config/* ~/.config
+cp -Rv ~/dotfiles/scripts/pywal16/.config/* ~/.config
 
 # copy script for changing wallpaper, because wal runs in pip sandbox
-cp -v ~/dotfiles/pywal16/chwal.sh ~/.local/bin/.
+cp -v ~/dotfiles/scripts/pywal16/chwal.sh ~/.local/bin/.
 
 
 # create dirs for geany and pywal
