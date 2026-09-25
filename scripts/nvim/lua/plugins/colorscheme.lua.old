@@ -1,0 +1,8 @@
+-- lua/plugins/colorscheme.lua
+return {
+  "folke/tokyonight.nvim",
+  priority = 1000, -- load before other plugins, since it's the colorscheme
+  config = function()
+    vim.cmd("colorscheme tokyonight")
+  end,
+}

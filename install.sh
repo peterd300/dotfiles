@@ -73,7 +73,7 @@ sudo xbps-install -Sy xorg xorg-server xorg-apps xrandr xterm xscreensaver twm x
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 echo "[4.2/15] Installing X11 apps  ..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
-sudo xbps-install -Sy gpick CopyQ zathura zathura-cb zathura-pdf-mup >> "$LOG_FILE" 2>&1
+sudo xbps-install -Sy gpick CopyQ zathura zathura-cb zathura-pdf-mupdf octoxbps >> "$LOG_FILE" 2>&1
 
 
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
@@ -236,7 +236,9 @@ echo "==========================================================================
 echo "[13/15] Customizing interactive shells (Fish & other components)..." | tee -a "$LOG_FILE"
 echo "========================================================================================================" >> "$LOG_FILE" 2>&1
 
-(
+(    # install UFW firewall
+    ./scripts/install-firewall.sh
+
      # installing Fish shell
     ./scripts/install-fish.sh
 
